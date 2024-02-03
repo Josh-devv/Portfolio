@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Cabin:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+/* src/styles/tailwind.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body,
+nav ul {
+  background-image: url('/src/assets/bg.png');
+  background-position: 0 0;
+  background-size: 200px 200px;
+}
+
+#root {
+  height: inherit;
+  width: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+.checklist div a,
+.socials div {
+  font-family: 'Cabin', sans-serif;
+}
+
+nav ul {
+  transition: transform 1s ease-in-out;
+}
+
+.tech_stack:hover svg {
+  fill: black;
+}
+
+@media (min-width: 300px) {
+  #grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+}
+
+@media (min-width: 900px) {
+  #grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+a.experience::before {
+  height: calc(100% - 20px);
+  width: 10px;
+  background-color: gray;
+}
+
+.email:hover svg,
+.email:hover span {
+  fill: #16a34a;
+  color: #16a34a;
+}
+
+.skills ul li {
+  list-style-type: square;
+}
+
+.checklist,
+.socials {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.projects {
+  /* display: grid; */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .checklist,
+  .socials,
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .checklist,
+  .socials,
+  .projects {
+    grid-template-columns: 1fr;
+  }
+}
+
+.socials a:hover > div {
+  color: #16a34a;
+  font-weight: bold;
+}
+
+.screenshot {
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.2);
+}
+
+.burger div {
+  height: 2px;
+  width: 22px;
+  margin: 3px 0;
+}
+
+.fade {
+  transition: transform 1000ms ease-in, opacity 1000ms ease;
+}
