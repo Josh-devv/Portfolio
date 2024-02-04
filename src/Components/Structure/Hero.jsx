@@ -1,12 +1,11 @@
 import { useMediaQuery } from '@react-hook/media-query';
 
-
 export default function Hero() {
   const isSmallScreen = useMediaQuery('(max-width: 900px)');
 
   return (
     <section className=''>
-      <div className="max-w-7xl pt-28 max-sm:pt-[16] flex flex-col md:flex-row items-center justify-between mx-auto gap-8 px-8 xl:px-0">
+      <div className="max-w-7xl pt-20 max-sm:pt-[16] flex flex-col md:flex-row items-center justify-between mx-auto gap-8 px-8 xl:px-0">
         <section className="md:w-[50%] w-auto">
           <h2 className="text-4xl lg:text-[40px] font-bold dark:text-white">Frontend Developer & a Part-Time Trader! </h2>
           <p className="text-lg my-6 dark:text-zinc-400">Experinced frontend developer dedicated to crafting responsive, user-engaging, and visually appealing web interfaces that elevate the online world.</p>
@@ -83,6 +82,7 @@ export default function Hero() {
 </svg>
 
       </div>
+      
     </section>
   );
 }

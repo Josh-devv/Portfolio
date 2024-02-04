@@ -7,7 +7,7 @@ export default function Main() {
   fadeUp(element);
 
   return (
-    <section ref={element} className="fade translate-y-[100px] opacity-5">
+    <section ref={element} className="fade  translate-y-[100px] opacity-5">
       <Hero />
 
      

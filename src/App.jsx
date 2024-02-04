@@ -5,6 +5,8 @@ import './styles/index.css'
 //import Home from './Components/Pages/Main'
 import Main from './Components/Pages/Main';
 import Hero from './Components/Structure/Hero';
+import About from './Components/Pages/About';
+import Projects from './Components/Pages/projects';
 /*
 import Home from './components/Pages/Main';
 import About from './components/Pages/About';
@@ -19,6 +21,8 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index Component={Main}/>
+      <Route path='about' Component={About}/>
+      <Route path='projects' Component={Projects}/>
     </Route>
   )
 );

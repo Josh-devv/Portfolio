@@ -6,7 +6,7 @@ import Footer from './Structure/Footer';
 export default function RootLayout() {
   return (
     <>
-      <header className="text-zinc-700 dark:text-zinc-400 mb-16">
+      <header className="text-zinc-700 dark:text-zinc-400 ">
         <Navbar />
       </header>
 
