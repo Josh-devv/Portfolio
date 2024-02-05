@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import useFadeUpEffect from '../Hooks/fadeUp';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -8,12 +9,8 @@ import useFetch from '../Hooks/useFetch';
 
 export default function Projects() {
 
-  //const { data } = useFetch(`${VITE_API_SERVER}/get_projects`, 'getProjects');
-  const [backend, setBackend] = useState([{}]);
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  //const { projects } = data || {};
   const element = useRef(null);
   useFadeUpEffect(element);
 
@@ -27,19 +24,28 @@ export default function Projects() {
   }, []);
 
 
-
   useEffect(() => {
-    fetch("http://localhost:3000/api")
-      .then(response => response.json())
-      .then(data => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/project");
+        const data = await response.json();
         console.log('API Data:', data);
         setProjects(data?.projects || []);
+        localStorage.setItem('projects', JSON.stringify(data?.projects || []));
         setLoading(false);
-      })
-      .catch(error => {
+      } catch (error) {
         console.error('Error fetching data:', error);
         setLoading(false);
-      });
+      }
+    };
+
+    const storedProjects = localStorage.getItem('projects');
+    if (storedProjects) {
+      setProjects(JSON.parse(storedProjects));
+      setLoading(false);
+    } else {
+      fetchData();
+    }
   }, []);
 
 
