@@ -32,7 +32,7 @@ export default function Footer() {
           <div className="mb-1 xl:mb-0">
             Design inspired by{' '}
             <a className="underline text-[#16a34a]" href="https://victoreke.com/" target="_blank" rel="noreferrer">
-              Joshua Sofela
+              Victor Eke
             </a>
           </div>
   

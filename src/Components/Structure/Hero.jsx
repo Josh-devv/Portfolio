@@ -52,7 +52,7 @@ export default function Hero() {
           </section>
         </section>
 
-        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" width="500">
+        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" width="500" className='max-sm:w-[90%]'>
   <rect x="100" y="100" width="200" height="200" stroke="#4CAF50" stroke-width="2" fill="none" />
   <rect x="300" y="100" width="200" height="200" stroke="#FF4081" stroke-width="2" fill="none" />
   <rect x="500" y="100" width="200" height="200" stroke="#03A9F4" stroke-width="2" fill="none" />
