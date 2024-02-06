@@ -21,18 +21,18 @@ console.log(data);
     document.title = 'Projects | Sofela Joshua';
 
     return () => {
-      document.title = 'Sofela Joshua | Fullstack Engineer';
+      document.title = 'Sofela Joshua | Frontend Developer';
     };
   }, []);
 
 
 
   const project =
-    projects?.map((data, i) => {
+    projects?.map((data, id) => {
       return (
-        <Link key={i} to={data.id} className="border border-transparent bg-zinc-50 flex items-center gap-3 hover:border-gray-200 cursor-pointer p-4 rounded-lg dark:bg-zinc-800 dark:hover:border-zinc-600">
+        <Link key={id} to={data.id} className="border border-transparent bg-zinc-50 flex items-center gap-3 hover:border-gray-200 cursor-pointer p-4 rounded-lg dark:bg-zinc-800 dark:hover:border-zinc-600">
           <div className="bg-gray-100 p-2 rounded-md min-w-[60px] min-h-[60px] flex items-center justify-center">
-            <img src={data.images} alt="" className="w-[40px]" />
+            <img src={data.images} alt="" className="w-[100px]" />
           </div>
 
           <div>

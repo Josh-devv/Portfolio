@@ -26,8 +26,3 @@ export default function useFetch(endpoint, key) {
   return { data };
 }
 
-// ?Todo
-
-// * 1) Add Nexilistings and current Project to the API
-// * 2) Get the smaller versions of each images rendered on the projects page
-// * 3) Implement lazy loading for the images in the projects page and the image on the about page.
