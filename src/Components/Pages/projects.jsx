@@ -53,7 +53,7 @@ export default function Projects() {
           Among countless projects, these are my proudest achievements — <span className="italic">a testament to my dedication and creativity.</span>
         </p>
 
-        <section className={`projects ${project?.length <= 0 ? 'flex' : 'grid'} items-center justify-center`}>
+        <section>
           {project?.length > 0 ? project : <Skeleton containerClassName="flex-1" count={5} height={60} borderRadius={'10px'} baseColor="gray" />}
         </section>
       </div>
