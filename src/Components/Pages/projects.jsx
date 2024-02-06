@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 const { VITE_API_SERVER } = import.meta.env;
-import { pic } from '../data';
 import useFadeUpEffect from '../Hooks/fadeUp';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -20,7 +19,6 @@ export default function Projects() {
   
   useEffect(() => {
     document.title = 'Projects | Sofela Joshua';
-
     return () => {
       document.title = 'Sofela Joshua | Frontend Developer';
     };
