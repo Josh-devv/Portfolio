@@ -1,7 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-//import CV from '../../assets/Resume.pdf';
+import CV from '../Pages/Workresume.pdf'
+import me from '../Pages/me.jpg'
 import fadeUp from '../Hooks/fadeUp'
 
 
@@ -18,7 +19,7 @@ export default function About() {
   }, []);
 
   return (
-    <section ref={element} className="fade translate-y-[110px]  opacity-5">
+    <section ref={element} className="fade translate-y-[100px] pt-10 opacity-5">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col-reverse xl:flex-row items-center xl:items-start justify-between px-8 xl:px-0">
           <div className="max-w-full xl:max-w-[50%]">
@@ -33,44 +34,7 @@ export default function About() {
               Let's collaborate and turn ideas into reality!
             </p>
 
-            <section className="skills my-10">
-              <h2 className="font-bold text-xl xl:text-2xl mb-6 dark:text-white">Noteworthy Skills and Attribute</h2>
-
-              <ul>
-                <li>
-                  <span className="font-bold dark:text-white">Attention to Detail:</span> <span>I derive satisfaction from crafting meticulous designs and user interfaces, placing a strong emphasis on quality to ensure a polished end product.</span>
-                </li>
-
-                <li className="my-6">
-                  <span className="font-bold dark:text-white">Self motivated & Independent:</span>{' '}
-                  <span>
-                    Recognizing the value of time and efficiency, I excel in delivering assignments and projects with minimal supervision. My proactive approach allows you the freedom to trust in the quality and timeliness of my work, eliminating the
-                    need for constant oversight.
-                  </span>
-                </li>
-
-                <li>
-                  <span className="font-bold dark:text-white">Collaboration Advocate:</span>{' '}
-                  <span>
-                    Beyond individual excellence, I believe in the power of collaboration. Whether it's contributing to a team project or fostering a sense of community, I bring a collaborative spirit that enhances the collective success of any
-                    endeavor.
-                  </span>
-                </li>
-
-                <li className="my-6">
-                  <span className="font-bold dark:text-white">Continous Learner:</span>{' '}
-                  <span>
-                    In the ever-evolving landscape of technology, I am committed to continuous learning. Staying abreast of the latest industry trends and technologies ensures that my skills remain cutting-edge, contributing to the overall success of
-                    the projects I undertake.
-                  </span>
-                </li>
-
-                <li>
-                  <span className="font-bold dark:text-white">Effective Communication:</span>{' '}
-                  <span>Clear and concise communication is integral to project success. I possess strong communication skills, facilitating smooth collaboration with team members and stakeholders, ensuring everyone is on the same page.</span>
-                </li>
-              </ul>
-            </section>
+          
 
             <section>
               <h2 className="font-bold text-xl xl:text-2xl mb-6 dark:text-white">Usage</h2>
@@ -228,7 +192,7 @@ export default function About() {
           </div>
 
           <div className="mb-6 xl:mb-0 dark:text-white">
-            <img src="" alt="" className="bg-zinc-200 rounded-lg w-[250px] lg:w-[500px]" />
+            <img src={me} alt="" className="bg-zinc-200 rounded-lg w-[250px] lg:w-[500px]" />
 
             <div className=" flex items-center justify-between my-4">
               <Link to="resume" className="flex items-center justify-center gap-1 p-2 border-transparent border hover:border-zinc-200 cursor-pointer w-[90%] rounded-md dark:bg-zinc-800 dark:hover:border-zinc-600">
@@ -238,14 +202,14 @@ export default function About() {
                 </svg>
               </Link>
 
-              <a href="" download="Ayoola Abdullah Resume" className="border border-transparent hover:border-zinc-200 cursor-pointer p-3 rounded-md dark:hover:border-zinc-600">
+              <a href={CV} download="Sofela Oluwasegun Joshua" className="border border-transparent hover:border-zinc-200 cursor-pointer p-3 rounded-md dark:hover:border-zinc-600">
                 <svg fill="#16a34a" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512">
                   <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
                 </svg>
               </a>
             </div>
 
-            <a href="mailto:officialayo540@gmail.com" target="_blank" rel="noreferrer" className="email flex items-center gap-1 cursor-pointer">
+            <a href="mailto:sofelajoshua@gmail.com" target="_blank" rel="noreferrer" className="email flex items-center gap-1 cursor-pointer">
               <svg fill="#3f3f46" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512">
                 <path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z" />
               </svg>
@@ -260,7 +224,7 @@ export default function About() {
           <p className="mt-3 mb-6">If you'd like to support me, you could follow my socials or buy me a coffee! ☕</p>
 
           <section className="socials flex-wrap max-w-full xl:max-w-[80%] pt-10 text-sm">
-            <a href="https://twitter.com/officialayo540" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-2 border border-gray-200 rounded-md hover:bg-zinc-200 dark:bg-zinc-800 dark:border-gray-800">
+            <a href="https://twitter.com/sofelajoshua" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-2 border border-gray-200 rounded-md hover:bg-zinc-200 dark:bg-zinc-800 dark:border-gray-800">
               <label htmlFor="myCheckBox">
                 <svg fill="#1DA1F2" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512">
                   <path d="M459.4 151.7c.3 4.5 .3 9.1 .3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53 51.7 63.7 129.3 105.3 216.4 109.8-1.6-7.8-2.6-15.9-2.6-24 0-57.8 46.8-104.9 104.9-104.9 30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3z" />
@@ -269,7 +233,7 @@ export default function About() {
               <div className="text-zinc-600 font-medium dark:text-white">Twitter</div>
             </a>
 
-            <a href="https://github.com/abdullah43577" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-2 border border-gray-200 rounded-md hover:bg-zinc-200 dark:bg-zinc-800 dark:border-gray-800">
+            <a href="https://github.com/josh-devv" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-2 border border-gray-200 rounded-md hover:bg-zinc-200 dark:bg-zinc-800 dark:border-gray-800">
               <label htmlFor="myCheckBox">
                 <svg fill="#333" xmlns="http://www.w3.org/2000/svg" height="16" width="15.5" viewBox="0 0 496 512">
                   <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
@@ -278,7 +242,7 @@ export default function About() {
               <div className="text-zinc-600 font-medium dark:text-white">Github</div>
             </a>
 
-            <a href="https://www.linkedin.com/in/ayo540/" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-2 border border-gray-200 rounded-md hover:bg-zinc-200 dark:bg-zinc-800 dark:border-gray-800">
+            <a href="https://www.linkedin.com/in/oluwasegun-sofela-8a062b22b/" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-2 border border-gray-200 rounded-md hover:bg-zinc-200 dark:bg-zinc-800 dark:border-gray-800">
               <label htmlFor="myCheckBox">
                 <svg fill="#0077b5" xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
                   <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
@@ -287,12 +251,7 @@ export default function About() {
               <div className="text-zinc-600 font-medium dark:text-white">Linkedin</div>
             </a>
 
-            <a href="https://www.buymeacoffee.com/ayo540" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-2 border border-gray-200 rounded-md hover:bg-zinc-200 dark:bg-zinc-800 dark:border-gray-800">
-              <label htmlFor="myCheckBox">
-                <img src="https://cdn.buymeacoffee.com/assets/logos/xmas-bmc-logo-1.5.png" alt="coffee icon" className="w-[14px]" />
-              </label>
-              <div className="text-zinc-600 font-medium dark:text-white">Buy me a Coffee</div>
-            </a>
+        
           </section>
         </section>
       </div>

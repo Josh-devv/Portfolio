@@ -1,4 +1,5 @@
 import { useMediaQuery } from '@react-hook/media-query';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   const isSmallScreen = useMediaQuery('(max-width: 900px)');
@@ -35,14 +36,12 @@ export default function Hero() {
               <span className="text-sm">Linkedin</span>
             </a>
 
-            <a href="" target="_blank" rel="noreferrer" className="tech_stack flex items-center gap-1 border-b border-zinc-200 cursor-pointer pb-1">
-              <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" height="18" width="24" viewBox="0 0 512 512" className="dark:text-white">
-                <path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z" />
-              </svg>
-
-              <span className="text-sm">Facebook</span>
-            </a>
-
+            <Link to="resume"  className="tech_stack flex items-center gap-1 border-b border-zinc-200 cursor-pointer pb-1">
+                <span className="text-sm">View Résumé</span>
+                <svg fill="#3f3f46" xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512">
+                  <path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h82.7L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V32c0-17.7-14.3-32-32-32H320zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z" />
+                </svg>
+              </Link>
             <a href="mailto:sofelajoshua@gmail.com" target="_blank" rel="noreferrer" className="tech_stack flex items-center gap-1 border-b border-zinc-200 cursor-pointer pb-1">
               <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" height="18" width="24" viewBox="0 0 512 512" className="dark:text-white">
                 <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
