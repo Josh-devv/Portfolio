@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 const { VITE_API_SERVER } = import.meta.env;
+import { pic } from '../data';
 import useFadeUpEffect from '../Hooks/fadeUp';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -15,11 +16,8 @@ export default function Projects() {
   const [loading, setLoading] = useState(true);
   const element = useRef(null);
   useFadeUpEffect(element);
-
-
-
-
-console.log(data);
+  
+console.log(projects);
   useEffect(() => {
     document.title = 'Projects | Sofela Joshua';
 
@@ -32,10 +30,16 @@ console.log(data);
 
   const project =
     projects?.map((data, id) => {
+      console.log(data.images);
       return (
         <Link key={id} to={data.id} className="border border-transparent bg-zinc-50 flex items-center gap-3 hover:border-gray-200 cursor-pointer p-4 rounded-lg dark:bg-zinc-800 dark:hover:border-zinc-600">
           <div className="bg-gray-100 p-2 rounded-md min-w-[60px] min-h-[60px] flex items-center justify-center">
-            <img src={data.images} alt="" className="w-[100px]" />
+            {
+              pic.map((pic) =>(
+                <img src={pic.image} alt="rtyn" className="w-[100px]" />
+              ))
+            }
+            
           </div>
 
           <div>
