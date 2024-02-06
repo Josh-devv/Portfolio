@@ -2,6 +2,7 @@
   "name": "my-portfolio",
   "private": true,
   "version": "0.0.0",
+  "proxy": "http://localhost:3000/project",
   "type": "module",
   "scripts": {
     "dev": "vite",

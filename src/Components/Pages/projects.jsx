@@ -12,8 +12,9 @@ import { useQuery } from '@tanstack/react-query';
 export default function Projects() {
 
   const { data } = useFetch(`${VITE_API_SERVER}/project`, 'getProjects');
+  console.log();
   const { projects } = data || {};
-  const [loading, setLoading] = useState(true);
+  //const [loading, setLoading] = useState(true);
   const element = useRef(null);
   useFadeUpEffect(element);
   
@@ -53,7 +54,7 @@ export default function Projects() {
           Among countless projects, these are my proudest achievements — <span className="italic">a testament to my dedication and creativity.</span>
         </p>
 
-        <section>
+        <section className={`projects ${project?.length <= 0 ? 'flex' : 'grid'} items-center justify-center`}>
           {project?.length > 0 ? project : <Skeleton containerClassName="flex-1" count={5} height={60} borderRadius={'10px'} baseColor="gray" />}
         </section>
       </div>
