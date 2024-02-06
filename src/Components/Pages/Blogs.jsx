@@ -14,7 +14,7 @@ export default function Blogs() {
   }, []);
 
   return (
-    <section ref={element} className="fade translate-y-[100px] opacity-5">
+    <section ref={element} className="fade translate-y-[100px] pt-10 h-[80vh] opacity-5">
       <div className="max-w-7xl mx-auto px-8 xl:px-0">
         <h2 className="text-2xl font-bold mb-4 dark:text-white">Blogs</h2>
 

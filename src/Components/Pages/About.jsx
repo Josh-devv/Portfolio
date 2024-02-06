@@ -3,6 +3,8 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import CV from '../Pages/Workresume.pdf'
 import me from '../Pages/me.jpg'
+import tsx from '../Pages/tsx.png'
+import ts from '../Pages/ts.png'
 import fadeUp from '../Hooks/fadeUp'
 
 
@@ -72,7 +74,7 @@ export default function About() {
 
                 <div className="flex items-center flex-wrap xl:items-center gap-2 my-6">
                   <div className="flex items-center gap-1">
-                    <img src="/typescript.png" alt="typescript logo" className="w-[15px] h-[15px]" />
+                    <img src={tsx} alt="typescript logo" className="w-[20px] h-[20px]" />
 
                     <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript" target="_blank" rel="noreferrer" className="underline text-blue-500 font-semibold">
                       Typescript
@@ -126,7 +128,7 @@ export default function About() {
 
                 <div className="flex items-center flex-wrap xl:items-center gap-2 my-6">
                   <div className="flex items-center gap-1">
-                    <img src="/tailwind_img.jpg" alt="tailwind icon" className="w-[18px]" />
+                    <img src={ts} alt="tailwind icon" className="w-[18px]" />
 
                     <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer" className="underline text-blue-500 font-semibold">
                       Tailwind CSS
@@ -137,57 +139,7 @@ export default function About() {
                 </div>
               </div>
 
-              <div>
-                <h2 className="text-lg xl:text-xl font-bold mb-3 dark:text-white">Tools</h2>
-
-                <div className="flex items-center flex-wrap gap-2">
-                  <div className="flex items-center gap-1">
-                    <img src="/vscode_img.webp" alt="visual studio code icon" />
-
-                    <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript" target="_blank" rel="noreferrer" className="underline text-blue-500 font-semibold">
-                      Visual Studio Code
-                    </a>
-                  </div>
-
-                  <span>- Text Editor</span>
-                </div>
-
-                <div className="flex items-center flex-wrap gap-2 my-6">
-                  <div className="flex items-center gap-1">
-                    <img src="/firefox_img.webp" alt="mozilla firefox icon" />
-
-                    <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript" target="_blank" rel="noreferrer" className="underline text-blue-500 font-semibold">
-                      Firefox
-                    </a>
-                  </div>
-
-                  <span>- Web Browser</span>
-                </div>
-
-                <div className="flex items-center flex-wrap gap-2">
-                  <div className="flex items-center gap-1">
-                    <img src="https://www.google.com/chrome/static/images/chrome-logo.svg" alt="Google chrome icon" className="w-[15px] h-[15px]" />
-
-                    <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript" target="_blank" rel="noreferrer" className="underline text-blue-500 font-semibold">
-                      Google Chrome
-                    </a>
-                  </div>
-
-                  <span>- Web Browser</span>
-                </div>
-
-                <div className="flex items-center flex-wrap gap-2 mt-6">
-                  <div className="flex items-center gap-1">
-                    <img src="/spotify_img.webp" alt="spotify icon" />
-
-                    <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript" target="_blank" rel="noreferrer" className="underline text-blue-500 font-semibold">
-                      Spotify
-                    </a>
-                  </div>
-
-                  <span>- Music Streaming</span>
-                </div>
-              </div>
+          
             </section>
           </div>
 
