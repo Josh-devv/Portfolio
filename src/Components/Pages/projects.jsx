@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import list from '../../data/list';
+import data from '../../data/list';
 import useFadeUpEffect from '../Hooks/fadeUp';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -19,16 +19,16 @@ export default function Projects() {
   }, []);
 
   const project =
-    list?.map((data, i) => {
+    data?.map((datas, id) => {
       return (
-        <Link key={i} to={data._id} className="border border-transparent bg-zinc-50 flex items-center gap-3 hover:border-gray-200 cursor-pointer p-4 rounded-lg dark:bg-zinc-800 dark:hover:border-zinc-600">
+        <Link key={id} to={datas.id} className="border border-transparent bg-zinc-50 flex items-center gap-3 hover:border-gray-200 cursor-pointer p-4 rounded-lg dark:bg-zinc-800 dark:hover:border-zinc-600">
           <div className="bg-gray-100 p-2 rounded-md min-w-[60px] min-h-[60px] flex items-center justify-center">
-            <img src={data.img} alt="" className="w-[40px]" />
+            <img src={datas.img} alt="" className="w-[40px]" />
           </div>
 
           <div>
-            <h4 className="font-medium mb-2 dark:text-white">{data.title}</h4>
-            <p className="text-sm dark:text-white">{data.tagline}</p>
+            <h4 className="font-medium mb-2 dark:text-white">{datas.title}</h4>
+            <p className="text-sm dark:text-white">{datas.tagline}</p>
           </div>
         </Link>
       );
