@@ -1,8 +1,7 @@
-import { useMediaQuery } from '@react-hook/media-query';
+
 import { Link } from 'react-router-dom';
 
 export default function Hero() {
-  const isSmallScreen = useMediaQuery('(max-width: 900px)');
 
   return (
     <section className=''>

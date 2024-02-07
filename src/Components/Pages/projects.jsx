@@ -4,8 +4,6 @@ import useFadeUpEffect from '../Hooks/fadeUp';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import useFetch from '../Hooks/useFetch';
-import { useQuery } from '@tanstack/react-query';
-
 
 export default function Projects() {
 
