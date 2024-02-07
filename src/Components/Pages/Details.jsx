@@ -46,7 +46,7 @@ console.log(id);
           
         </div>
 
-        {item?.screenshot ? <img src={item?.screenshot} alt={`${item?.title} logo`} className="rounded-xl screenshot" /> : <Skeleton height={150} baseColor="gray" />}
+        {item?.image ? <img src={item?.image} alt={`${item?.title} logo`} className="rounded-xl image" /> : <Skeleton height={150} baseColor="gray" />}
 
         <section className="my-8">
           <h2 className="font-bold text-lg xl:text-2xl text-gray-700 pb-4 dark:text-white">Overview</h2>
