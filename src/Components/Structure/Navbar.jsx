@@ -26,7 +26,6 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    // get the current background and set to the documentElement
     const currentBg = localStorage.getItem('dark');
     if (currentBg === 'dark') document.documentElement.classList.add(currentBg);
   }, []);
@@ -72,7 +71,7 @@ export default function Navbar() {
             <IoSunnyOutline size={40}/>
           </div>
 
-          {/* hamburger menu */}
+          
           <div className="border border-gray-200 rounded-md p-2 cursor-pointer md:hidden dark:border-zinc-600" onClick={toggleNavBar}>
             <div className="burger">
               <CiMenuFries size={25} />

@@ -9,8 +9,6 @@ export default function Main() {
   return (
     <section ref={element} className="fade  translate-y-[100px] opacity-5">
       <Hero />
-
-     
     </section>
   );
 }

@@ -1,29 +1,32 @@
-import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import data from '../../data/list';
-import useFadeUpEffect from '../Hooks/fadeUp';
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import data from "../../data/list";
+import useFadeUpEffect from "../Hooks/fadeUp";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export default function Projects() {
-  
   const element = useRef(null);
   useFadeUpEffect(element);
 
   useEffect(() => {
-    document.title = 'Projects | Sofela Joshua';
+    document.title = "Projects | Sofela Joshua";
 
     return () => {
-      document.title = 'Sofela Joshua | Frontend Developer';
+      document.title = "Sofela Joshua | Frontend Developer";
     };
   }, []);
 
   const project =
     data?.map((datas, id) => {
       return (
-        <Link key={id} to={`/projects/${id}`} className="border border-transparent bg-zinc-50 flex items-center gap-3 hover:border-gray-200 cursor-pointer p-4 rounded-lg dark:bg-zinc-800 dark:hover:border-zinc-600">
-          <div className="bg-gray-100 p-2 rounded-md min-w-[60px] min-h-[60px] flex items-center justify-center">
-           
+        <Link
+          key={id}
+          to={`/projects/${id}`}
+          className="border border-transparent bg-zinc-50 flex items-center gap-3 hover:border-gray-200 cursor-pointer p-4 rounded-lg dark:bg-zinc-800 dark:hover:border-zinc-600"
+        >
+          <div className="bg-gray-100 rounded-md min-w-[60px] min-h-[60px] flex items-center justify-center">
+            <img src={datas.image} className="w-[60px] h-[50px] bg-cover" />
           </div>
 
           <div>
@@ -35,13 +38,29 @@ export default function Projects() {
     }) || [];
 
   return (
-    <section ref={element} className="fade translate-y-[100px] opacity-5">
+    <section
+      ref={element}
+      className="fade translate-y-[100px] h-[60vh] max-md:h-[100%] opacity-5"
+    >
       <div className="max-w-7xl mx-auto px-4 pt-5 xl:px-0">
         <h2 className="text-3xl font-bold dark:text-white pb-6">Projects</h2>
-       
 
-        <section className={`projects ${project?.length <= 0 ? 'flex' : 'grid'} items-center justify-center`}>
-          {project?.length > 0 ? project : <Skeleton containerClassName="flex-1" count={5} height={60} borderRadius={'10px'} baseColor="gray" />}
+        <section
+          className={`projects ${
+            project?.length <= 0 ? "flex" : "grid"
+          } items-center justify-center`}
+        >
+          {project?.length > 0 ? (
+            project
+          ) : (
+            <Skeleton
+              containerClassName="flex-1"
+              count={5}
+              height={60}
+              borderRadius={"10px"}
+              baseColor="gray"
+            />
+          )}
         </section>
       </div>
     </section>

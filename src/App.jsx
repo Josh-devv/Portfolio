@@ -2,7 +2,6 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import RootLayout from './Components/RootLayout';
 import './styles/index.css'
 import Main from './Components/Pages/Main';
-import Hero from './Components/Structure/Hero';
 import About from './Components/Pages/About';
 import Projects from './Components/Pages/projects';
 import Blogs from './Components/Pages/Blogs';
