@@ -61,6 +61,9 @@ export default function Navbar() {
           <Link to="blog" onClick={toggleNavBar}>
             <li className="cursor-pointer dark:hover:text-green-600">Blogs</li>
           </Link>
+          <Link to="blog" onClick={toggleNavBar}>
+            <li className="cursor-pointer dark:hover:text-green-600">COntect</li>
+          </Link>
 
         </ul>
 
