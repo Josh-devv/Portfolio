@@ -1,7 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-const { VITE_API_SERVER } = import.meta.env;
-import useFetch from '../hooks/useFetch';
 import list from '../../data/list';
 import useFadeUpEffect from '../Hooks/fadeUp';
 import Skeleton from 'react-loading-skeleton';
