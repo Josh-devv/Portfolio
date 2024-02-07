@@ -1,4 +1,4 @@
-import lol from '../Assets/1.png'
+
 import lol1 from '../Assets/2.png'
 import lol2 from '../Assets/3.png'
 import lol3 from '../Assets/4.png'
@@ -10,7 +10,7 @@ const data = [
       id: 1,
       title: 'HiFashion Fashion Website',
       tagline: 'An Fashion e-commerce Website',
-      img: lol,
+      img: lol1,
       desc:'Discover the latest trends and timeless styles on our fashion-forward platform. Explore a curated collection that caters to every taste and collection. Immerse yourself in a world of elegance'
      },  
     {
