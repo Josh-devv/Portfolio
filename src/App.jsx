@@ -7,7 +7,7 @@ import About from './Components/Pages/About';
 import Projects from './Components/Pages/projects';
 import Blogs from './Components/Pages/Blogs';
 import Resume from './Components/Pages/Resume';
-
+import Details from './Components/Pages/Details';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -15,6 +15,7 @@ const router = createBrowserRouter(
       <Route index Component={Main}/>
       <Route path='about' Component={About}/>
       <Route path='projects' Component={Projects}/>
+      <Route path='details' Component={Details}/>
       <Route path='blog' Component={Blogs}/>
       <Route path='about/resume' Component={Resume}/>
     </Route>
