@@ -37,10 +37,8 @@ export default function Projects() {
   return (
     <section ref={element} className="fade translate-y-[100px] opacity-5">
       <div className="max-w-7xl mx-auto px-4 pt-5 xl:px-0">
-        <h2 className="text-3xl font-bold dark:text-white">Projects</h2>
-        <p className="my-6">
-          Among countless projects, these are my proudest achievements — <span className="italic">a testament to my dedication and creativity.</span>
-        </p>
+        <h2 className="text-3xl font-bold dark:text-white pb-6">Projects</h2>
+       
 
         <section className={`projects ${project?.length <= 0 ? 'flex' : 'grid'} items-center justify-center`}>
           {project?.length > 0 ? project : <Skeleton containerClassName="flex-1" count={5} height={60} borderRadius={'10px'} baseColor="gray" />}

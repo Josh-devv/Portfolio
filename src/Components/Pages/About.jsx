@@ -28,7 +28,7 @@ export default function About() {
             <h2 className="font-bold text-lg xl:text-3xl dark:text-white">Hi there!, I'm Sofela Joshua, a Frontend developer and a Computer Science student based in Lagos, Nigeria. Driven to create cutting-edge solutions.</h2>
 
             <p className="my-6 text-sm xl:text-base">
-              I'm a versatile frontend developer and a trader in Lagos, Nigeria. I bring a passion for creating effective and innovative solutions, websites and solving complex problems through code. As a developer, I've honed my skills in
+              I'm a versatile frontend developer in Lagos, Nigeria. I bring a passion for creating effective and innovative solutions, websites and solving complex problems through code. As a developer, I've honed my skills in
               ReactJS and Typescript for building dynamic and interactive user interfaces. Adept at utilizing TailwindCSS and Bootstrap to create responsive and visually appealing designs.
               <br />
               

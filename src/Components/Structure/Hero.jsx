@@ -7,7 +7,7 @@ export default function Hero() {
     <section className=''>
       <div className="max-w-7xl pt-20 max-sm:pt-[16] flex flex-col md:flex-row items-center justify-between mx-auto gap-8 px-5 xl:px-0">
         <section className="md:w-[50%] w-auto">
-          <h2 className="text-4xl lg:text-[40px] font-bold dark:text-white">Frontend Developer & a Part-Time Trader! </h2>
+          <h2 className="text-4xl lg:text-[40px] font-bold dark:text-white">Frontend Developer and a Father of Two </h2>
           <p className="text-lg my-6 dark:text-zinc-400">A frontend developer with a passion for building intuitive and visually stunning user interfaces. With a keen eye for design and a knack for coding and bringing concepts to life with precision and elegance. Whether it's crafting responsive layouts, optimizing performance, or enhancing user experience, I am dedicated to delivering top-notch results</p>
 
           <section className="flex flex-wrap gap-4">

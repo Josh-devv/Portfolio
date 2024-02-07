@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IoSunnyOutline} from 'react-icons/io5'
+import {CiMenuFries} from 'react-icons/ci'
 import log from './josh.png'
 
 export default function Navbar() {
@@ -74,9 +75,7 @@ export default function Navbar() {
           {/* hamburger menu */}
           <div className="border border-gray-200 rounded-md p-2 cursor-pointer md:hidden dark:border-zinc-600" onClick={toggleNavBar}>
             <div className="burger">
-              <div className="line1 bg-gray-500"></div>
-              <div className="line2 bg-gray-500"></div>
-              <div className="line3 bg-gray-500"></div>
+              <CiMenuFries size={25} />
             </div>
           </div>
         </div>
