@@ -14,7 +14,7 @@ export default function Projects() {
   const { data } = useFetch(`${VITE_API_SERVER}/project`, 'getProjects');
   console.log();
   const { projects } = data || {};
-  //const [loading, setLoading] = useState(true);
+
   const element = useRef(null);
   useFadeUpEffect(element);
   
