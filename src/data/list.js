@@ -1,9 +1,9 @@
-import lol from '../Assets/1.png'
-import lol1 from '../Assets/2.png'
-import lol2 from '../Assets/3.png'
-import lol3 from '../Assets/4.png'
-import lol4 from '../Assets/5.png'
-import lol5 from '../Assets/6.png'
+import lol from './1.png'
+import lol1 from './2.png'
+import lol2 from './3.png'
+import lol3 from './4.png'
+import lol4 from './5.png'
+import lol5 from './6.png'
 
 const data = [
     {
