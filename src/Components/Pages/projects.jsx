@@ -23,7 +23,7 @@ export default function Projects() {
       return (
         <Link key={id} to={datas.id} className="border border-transparent bg-zinc-50 flex items-center gap-3 hover:border-gray-200 cursor-pointer p-4 rounded-lg dark:bg-zinc-800 dark:hover:border-zinc-600">
           <div className="bg-gray-100 p-2 rounded-md min-w-[60px] min-h-[60px] flex items-center justify-center">
-            <img src={datas.img} alt="" className="w-[40px]" />
+           
           </div>
 
           <div>
