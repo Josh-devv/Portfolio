@@ -23,7 +23,7 @@ export default function About() {
   return (
     <section ref={element} className="fade translate-y-[100px] pt-10 opacity-5">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col-reverse xl:flex-row items-center xl:items-start justify-between px-8 xl:px-0">
+        <div className="flex flex-col-reverse xl:flex-row items-center xl:items-start justify-between px-4 xl:px-0">
           <div className="max-w-full xl:max-w-[50%]">
             <h2 className="font-bold text-lg xl:text-3xl dark:text-white">Hi there!, I'm Sofela Joshua, a Frontend developer and a Computer Science student based in Lagos, Nigeria. Driven to create cutting-edge solutions.</h2>
 
@@ -144,7 +144,7 @@ export default function About() {
           </div>
 
           <div className="mb-6 xl:mb-0 dark:text-white">
-            <img src={me} alt="" className="bg-zinc-200 rounded-lg w-[250px] lg:w-[500px]" />
+            <img src={me} alt="" className="bg-zinc-200 rounded-lg w-[250px] max-sm:w-[100%] lg:w-[500px]" />
 
             <div className=" flex items-center justify-between my-4">
               <Link to="resume" className="flex items-center justify-center gap-1 p-2 border-transparent border hover:border-zinc-200 cursor-pointer w-[90%] rounded-md dark:bg-zinc-800 dark:hover:border-zinc-600">

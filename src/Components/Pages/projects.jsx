@@ -11,17 +11,17 @@ export default function Projects() {
   useFadeUpEffect(element);
 
   useEffect(() => {
-    document.title = 'Projects | Abdullah Ayoola';
+    document.title = 'Projects | Sofela Joshua';
 
     return () => {
-      document.title = 'Abdullah Ayoola | Fullstack Engineer';
+      document.title = 'Sofela Joshua | Frontend Developer';
     };
   }, []);
 
   const project =
     data?.map((datas, id) => {
       return (
-        <Link key={id} to={datas.id} className="border border-transparent bg-zinc-50 flex items-center gap-3 hover:border-gray-200 cursor-pointer p-4 rounded-lg dark:bg-zinc-800 dark:hover:border-zinc-600">
+        <Link key={id} to={`/projects/${id}`} className="border border-transparent bg-zinc-50 flex items-center gap-3 hover:border-gray-200 cursor-pointer p-4 rounded-lg dark:bg-zinc-800 dark:hover:border-zinc-600">
           <div className="bg-gray-100 p-2 rounded-md min-w-[60px] min-h-[60px] flex items-center justify-center">
            
           </div>
@@ -36,7 +36,7 @@ export default function Projects() {
 
   return (
     <section ref={element} className="fade translate-y-[100px] opacity-5">
-      <div className="max-w-7xl mx-auto px-8 xl:px-0">
+      <div className="max-w-7xl mx-auto px-4 pt-5 xl:px-0">
         <h2 className="text-3xl font-bold dark:text-white">Projects</h2>
         <p className="my-6">
           Among countless projects, these are my proudest achievements — <span className="italic">a testament to my dedication and creativity.</span>
