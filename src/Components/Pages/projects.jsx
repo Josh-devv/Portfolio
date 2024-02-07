@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-const { VITE_API_SERVER } = import.meta.env;
 import useFadeUpEffect from '../Hooks/fadeUp';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -10,6 +9,8 @@ import { useQuery } from '@tanstack/react-query';
 
 export default function Projects() {
 
+  const { VITE_API_SERVER } = import.meta.env;
+  console.log(VITE_API_SERVER);
   const { data } = useFetch(`${VITE_API_SERVER}/project`, 'getProjects');
   console.log();
   const { projects } = data || {};
