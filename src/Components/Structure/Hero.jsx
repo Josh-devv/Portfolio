@@ -6,7 +6,7 @@ export default function Hero() {
       <div className="max-w-7xl pt-20 max-sm:pt-[16] flex flex-col md:flex-row items-center justify-between mx-auto gap-8 px-5 xl:px-0">
         <section className="md:w-[50%] w-auto">
           <h2 className="text-4xl lg:text-[40px] font-bold dark:text-white">
-            Frontend Developer and a Father of Two{" "}
+            Frontend Developer {" "}
           </h2>
           <p className="text-lg my-6 dark:text-zinc-400">
             A frontend developer with a passion for building intuitive and
