@@ -25,13 +25,13 @@ export default function About() {
         <div className="flex flex-col-reverse xl:flex-row items-center xl:items-start justify-between px-4 xl:px-0">
           <div className="max-w-full xl:max-w-[50%]">
             <h2 className="font-bold text-lg xl:text-3xl dark:text-white">
-              Hi there!, I'm Sofela Joshua, a Frontend developer and a Computer
-              Science student based in Lagos, Nigeria. Driven to create
-              cutting-edge solutions.
+              Hi there!, I'm Sofela Joshua,
+              
             </h2>
 
             <p className="my-6 text-sm xl:text-base">
-              I'm a versatile frontend developer in Lagos, Nigeria. I bring a
+              A Computer Science student and a driven Frontend Developer with one year of professional
+              experience, specializing in crafting interactive and visually appealing user interfaces with a
               passion for creating effective and innovative solutions, websites
               and solving complex problems through code. As a developer, I've
               honed my skills in ReactJS and Typescript for building dynamic and
