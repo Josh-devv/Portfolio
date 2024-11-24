@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import CV from "../Pages/Workresume.pdf";
+import cv2 from "../Pages/CV.pdf";
 import me from "../Pages/me.jpg";
 import tsx from "../Pages/tsx.png";
 import ts from "../Pages/ts.png";
@@ -244,7 +245,7 @@ export default function About() {
               </Link>
 
               <a
-                href={CV}
+                href={cv2}
                 download="Sofela Oluwasegun Joshua"
                 className="border border-transparent hover:border-zinc-200 cursor-pointer p-3 rounded-md dark:hover:border-zinc-600"
               >

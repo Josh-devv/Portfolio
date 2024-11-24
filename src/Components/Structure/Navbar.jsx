@@ -20,7 +20,7 @@ export default function Navbar() {
       localStorage.setItem('dark', currentBg);
     } else {
       document.documentElement.classList.remove('dark');
-      currentBg = 'null';
+      currentBg = 'Null';
       localStorage.setItem('dark', currentBg);
     }
   };
