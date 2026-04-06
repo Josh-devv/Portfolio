@@ -1,43 +1,76 @@
+import { Sparkles} from 'lucide-react';
+import { FaGithub } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
+import { motion } from 'framer-motion';
 
 export default function Footer() {
-    const date = new Date().getFullYear();
-  
-    return (
-      <footer className="border border-x-0 border-b-0 mt-10 border-t-zinc-200  dark:border-gray-800">
-        <div className="flex flex-col xl:flex-row items-center justify-between text-zinc-700 dark:text-white max-w-7xl mx-auto text-sm px-8 xl:px-0">
-          <div className="flex flex-col sm:flex-row items-center">
-            <span className="max-sm:hidden">Built with: </span>
-  
-            <div className="flex max-sm:hidden items-center gap-2 ml-2  xl:my-0">
-              <a href="#" target="_blank" rel="noreferrer" className="flex items-center gap-1">
-                <svg fill="#61dbfb" xmlns="http://www.w3.org/2000/svg" height="18" width="18" viewBox="0 0 512 512">
-                  <path d="M418.2 177.2c-5.4-1.8-10.8-3.5-16.2-5.1 .9-3.7 1.7-7.4 2.5-11.1 12.3-59.6 4.2-107.5-23.1-123.3-26.3-15.1-69.2 .6-112.6 38.4-4.3 3.7-8.5 7.6-12.5 11.5-2.7-2.6-5.5-5.2-8.3-7.7-45.5-40.4-91.1-57.4-118.4-41.5-26.2 15.2-34 60.3-23 116.7 1.1 5.6 2.3 11.1 3.7 16.7-6.4 1.8-12.7 3.8-18.6 5.9C38.3 196.2 0 225.4 0 255.6c0 31.2 40.8 62.5 96.3 81.5 4.5 1.5 9 3 13.6 4.3-1.5 6-2.8 11.9-4 18-10.5 55.5-2.3 99.5 23.9 114.6 27 15.6 72.4-.4 116.6-39.1 3.5-3.1 7-6.3 10.5-9.7 4.4 4.3 9 8.4 13.6 12.4 42.8 36.8 85.1 51.7 111.2 36.6 27-15.6 35.8-62.9 24.4-120.5-.9-4.4-1.9-8.9-3-13.5 3.2-.9 6.3-1.9 9.4-2.9 57.7-19.1 99.5-50 99.5-81.7 0-30.3-39.4-59.7-93.8-78.4zM282.9 92.3c37.2-32.4 71.9-45.1 87.7-36 16.9 9.7 23.4 48.9 12.8 100.4-.7 3.4-1.4 6.7-2.3 10-22.2-5-44.7-8.6-67.3-10.6-13-18.6-27.2-36.4-42.6-53.1 3.9-3.7 7.7-7.2 11.7-10.7zM167.2 307.5c5.1 8.7 10.3 17.4 15.8 25.9-15.6-1.7-31.1-4.2-46.4-7.5 4.4-14.4 9.9-29.3 16.3-44.5 4.6 8.8 9.3 17.5 14.3 26.1zm-30.3-120.3c14.4-3.2 29.7-5.8 45.6-7.8-5.3 8.3-10.5 16.8-15.4 25.4-4.9 8.5-9.7 17.2-14.2 26-6.3-14.9-11.6-29.5-16-43.6zm27.4 68.9c6.6-13.8 13.8-27.3 21.4-40.6s15.8-26.2 24.4-38.9c15-1.1 30.3-1.7 45.9-1.7s31 .6 45.9 1.7c8.5 12.6 16.6 25.5 24.3 38.7s14.9 26.7 21.7 40.4c-6.7 13.8-13.9 27.4-21.6 40.8-7.6 13.3-15.7 26.2-24.2 39-14.9 1.1-30.4 1.6-46.1 1.6s-30.9-.5-45.6-1.4c-8.7-12.7-16.9-25.7-24.6-39s-14.8-26.8-21.5-40.6zm180.6 51.2c5.1-8.8 9.9-17.7 14.6-26.7 6.4 14.5 12 29.2 16.9 44.3-15.5 3.5-31.2 6.2-47 8 5.4-8.4 10.5-17 15.5-25.6zm14.4-76.5c-4.7-8.8-9.5-17.6-14.5-26.2-4.9-8.5-10-16.9-15.3-25.2 16.1 2 31.5 4.7 45.9 8-4.6 14.8-10 29.2-16.1 43.4zM256.2 118.3c10.5 11.4 20.4 23.4 29.6 35.8-19.8-.9-39.7-.9-59.5 0 9.8-12.9 19.9-24.9 29.9-35.8zM140.2 57c16.8-9.8 54.1 4.2 93.4 39 2.5 2.2 5 4.6 7.6 7-15.5 16.7-29.8 34.5-42.9 53.1-22.6 2-45 5.5-67.2 10.4-1.3-5.1-2.4-10.3-3.5-15.5-9.4-48.4-3.2-84.9 12.6-94zm-24.5 263.6c-4.2-1.2-8.3-2.5-12.4-3.9-21.3-6.7-45.5-17.3-63-31.2-10.1-7-16.9-17.8-18.8-29.9 0-18.3 31.6-41.7 77.2-57.6 5.7-2 11.5-3.8 17.3-5.5 6.8 21.7 15 43 24.5 63.6-9.6 20.9-17.9 42.5-24.8 64.5zm116.6 98c-16.5 15.1-35.6 27.1-56.4 35.3-11.1 5.3-23.9 5.8-35.3 1.3-15.9-9.2-22.5-44.5-13.5-92 1.1-5.6 2.3-11.2 3.7-16.7 22.4 4.8 45 8.1 67.9 9.8 13.2 18.7 27.7 36.6 43.2 53.4-3.2 3.1-6.4 6.1-9.6 8.9zm24.5-24.3c-10.2-11-20.4-23.2-30.3-36.3 9.6 .4 19.5 .6 29.5 .6 10.3 0 20.4-.2 30.4-.7-9.2 12.7-19.1 24.8-29.6 36.4zm130.7 30c-.9 12.2-6.9 23.6-16.5 31.3-15.9 9.2-49.8-2.8-86.4-34.2-4.2-3.6-8.4-7.5-12.7-11.5 15.3-16.9 29.4-34.8 42.2-53.6 22.9-1.9 45.7-5.4 68.2-10.5 1 4.1 1.9 8.2 2.7 12.2 4.9 21.6 5.7 44.1 2.5 66.3zm18.2-107.5c-2.8 .9-5.6 1.8-8.5 2.6-7-21.8-15.6-43.1-25.5-63.8 9.6-20.4 17.7-41.4 24.5-62.9 5.2 1.5 10.2 3.1 15 4.7 46.6 16 79.3 39.8 79.3 58 0 19.6-34.9 44.9-84.8 61.4zm-149.7-15c25.3 0 45.8-20.5 45.8-45.8s-20.5-45.8-45.8-45.8c-25.3 0-45.8 20.5-45.8 45.8s20.5 45.8 45.8 45.8z" />
-                </svg>
-                <span>React</span>
-              </a>
-  
-              <a href="#" target="_blank" rel="noreferrer" className="flex items-center gap-1">
-              <svg fill="#000000" width="25px" height="64px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 6.036c-2.667 0-4.333 1.325-5 3.976 1-1.325 2.167-1.822 3.5-1.491.761.189 1.305.738 1.906 1.345C13.387 10.855 14.522 12 17 12c2.667 0 4.333-1.325 5-3.976-1 1.325-2.166 1.822-3.5 1.491-.761-.189-1.305-.738-1.907-1.345-.98-.99-2.114-2.134-4.593-2.134zM7 12c-2.667 0-4.333 1.325-5 3.976 1-1.326 2.167-1.822 3.5-1.491.761.189 1.305.738 1.907 1.345.98.989 2.115 2.134 4.594 2.134 2.667 0 4.333-1.325 5-3.976-1 1.325-2.167 1.822-3.5 1.491-.761-.189-1.305-.738-1.906-1.345C10.613 13.145 9.478 12 7 12z"></path></g></svg>
-                <span>Tailwindcss</span>
-              </a>
-  
-              <a href="#" target="_blank" rel="noreferrer" className="flex items-center gap-1">
-              <svg viewBox="0 0 15 15" width="20px" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M7.49998 1L6.92321 2.00307L1.17498 12L0.599976 13H1.7535H13.2464H14.4L13.825 12L8.07674 2.00307L7.49998 1ZM7.49998 3.00613L2.3285 12H12.6714L7.49998 3.00613Z" fill="#000000"></path> </g></svg>
-                <span>Vercel</span>
-              </a>
+  const date = new Date().getFullYear();
+
+  return (
+    <footer className="relative mt-20 pb-12 overflow-hidden">
+      {/* Decorative Line */}
+      <div className="container mx-auto px-6">
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-zinc-800 to-transparent mb-12"></div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+          {/* Brand/Logo Section */}
+          <div className="flex flex-col items-center md:items-start gap-4">
+            <div className="flex items-center gap-2 group">
+              <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary">
+              <Sparkles size={16} fill="currentColor" />
+              </div>
+              <span className="text-lg font-bold tracking-tighter text-white">
+                JOSH<span className="text-primary italic">.</span>
+              </span>
             </div>
+            <p className="text-sm text-zinc-500 text-center md:text-left max-w-xs leading-relaxed">
+              Crafting premium digital experiences with modern technologies and a passion for pixel-perfect design.
+            </p>
           </div>
-  
-          <div className="mb-1 xl:mb-0 max-sm:pt-3">
-            Design inspired by{' '}
-            <a className="underline text-[#16a34a]" href="https://victoreke.com/" target="_blank" rel="noreferrer">
-              Victor Eke
-            </a>
+
+          {/* Copyright Section */}
+          <div className="flex flex-col items-center justify-center gap-2">
+            <p className="text-sm text-zinc-500 flex items-center gap-2">
+              Made with  {/*<Heart size={14} className="text-secondary fill-secondary/20" /> */}by Joshua Sofela
+            </p>
+            <p className="text-xs text-zinc-600 font-medium tracking-wide uppercase">
+              &copy; {date} ALL RIGHTS RESERVED
+            </p>
           </div>
-  
-          <div className="text-center dark:text-zinc-400">Copyright &copy; Joshua Sofela {date} All rights reserved</div>
+
+          {/* Social Links Section */}
+          <div className="flex items-center justify-center md:justify-end gap-4">
+            {[
+              { icon: <FaGithub size={20} />, href: "https://github.com/josh-devv" },
+              { icon: <FaTwitter size={20} />, href: "https://x.com/sofelajoshua" },
+              { icon: <FaLinkedin size={20} />, href: "https://www.linkedin.com/in/oluwasegun-sofela-8a062b22b/" },
+            ].map((social, idx) => (
+              <motion.a
+                key={idx}
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
+                whileHover={{ y: -5, scale: 1.1 }}
+                className="p-3 rounded-xl glass border border-zinc-900 text-zinc-500 hover:text-white transition-all duration-300"
+              >
+                {social.icon}
+              </motion.a>
+            ))}
+          </div>
         </div>
-      </footer>
-    );
-  }
+
+        {/* Bottom Credits */}
+        <div className="mt-12 text-center">
+          <p className="text-[10px] text-zinc-700 uppercase tracking-widest font-bold">
+            Powered by React • Tailwind • Framer Motion • Vercel
+          </p>
+        </div>
+      </div>
+
+      {/* Background Glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-32 bg-primary/5 blur-[100px] rounded-full -z-10"></div>
+    </footer>
+  );
+}

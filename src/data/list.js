@@ -1,74 +1,71 @@
-import lol from './1.png'
-import lol1 from './2.png'
-import lol2 from './3.png'
-import lol3 from './4.png'
-import lol4 from './5.png'
-import lol5 from './6.png'
+
+import well from "../assets/well.jpg"
+
+import aur from "../assets/aur.jpg"
+
+import oyo from "../assets/oyo.jpg"
+
+import fit from "../assets/fit.jpg"
+
+import port from "../assets/port.png"
+import flix from "../assets/flix.png"
+
 
 const data = [
     {
       id: 0,
-      image: lol,
-      title: 'HiFashion Fashion Website',
-      tagline: 'An Fashion e-commerce Website',
-      stack: ["NextJs", "TailwindCss"],
-      link: "http://josh-stores.vercel.app",
-      desc:'Step into the realm of style and sophistication with our premier fashion website. Discover the latest trends, explore curated collections, and find inspiration for your next stunning look. From haute couture to everyday essentials, our platform caters to every fashionistas needs. Immerse yourself in a world of glamour through captivating visuals, insightful articles, and exclusive designer collaborations. Elevate your wardrobe and unleash your inner fashion icon with our unparalleled selection and expert fashion advice'},  
+      image: well,
+      title: 'WellSync Health Dashboard',
+      tagline: 'Comprehensive Health & Wellness Management',
+      stack: ["React", "TailwindCSS", "Health Dashboard", "SaaS UI"],
+      link: "https://the-phenomenons.vercel.app/patient",
+      desc: 'A sophisticated health and wellness management platform providing users with real-time health scores, medical records, and personalized care plans. Features intuitive data visualization, task management, and deep healthcare insights for a seamless patient experience.'
+    },
     {
       id: 1,
-      title: 'JoshFlix',
-      image: lol1,
-      tagline:'Movie Web App',
-      link: "http://movieapp-josh-devv.vercel.app",
-      stack: ["React", "CSS", "TMDB API"],
-      desc:'Experience the ultimate cinematic journey with our cutting-edge movie web application. Dive into a world of endless entertainment, where you can discover, watch, and discuss your favorite films effortlessly. Our platform offers a user-friendly interface, personalized recommendations, and a vast library of movies spanning various genres and languages. Whether you are a die-hard fan or a casual viewer, our app promises to elevate your movie-watching experience to new heights.'},
-  
-      {
-        id: 2,
-        title: 'Porfolio',
-        image: lol5,
-        link: "http://joshua-sofela.vercel.app",
-       stack: ["ReactJs", "TailwindCss", "Vite"],
-       desc:'My portfolio project',
-        tagline: 'My Portfolio',
-        },
-        {
-            id: 3,
-            title: 'Hyer',
-            image: lol4,
-            stack: ["HTML", "BootStrap", "CSS"],
-            link: "http://dev-hy.vercel.app",
-            desc: 'Empowering individuals to unlock their full potential, our gig economy website is your gateway to flexible work opportunities and limitless possibilities. Seamlessly connect with clients or freelancers across a diverse range of industries, from graphic design to digital marketing and beyond. Our intuitive platform facilitates secure transactions, transparent communication, and fair compensation for all parties involved. Whether you are a freelancer seeking gigs or a business in need of talent, our website streamlines the process, enabling you to thrive in todays dynamic gig economy landscape',
-            
-            tagline: 'A Gig economy Website',
-            },
-            {
-                id: 4,
-                title: 'JoshLogic',
-                image: lol3,
-                link: "http://devh.vercel.app/",
-                stack: [],
-                desc: 'Welcome to our database landing page, where the heartbeat of your digital infrastructure begins. Explore the power of organized data, streamlined operations, and enhanced decision-making.',
-                tagline: 'A Simple Landing page for database',
-                },
-            
+      image: aur,
+      title: 'Aurea Cosmetics',
+      tagline: 'Luxury Boutique Beauty Experience.',
+      stack: ["React", "TailwindCSS", "Framer Motion", "Luxury UI"],
+      link: "https://cosmet-opal.vercel.app",
+      desc: 'A premium, editorial-style e-commerce experience for Aurea, a luxury cosmetic brand. This project showcases high-end visuals, smooth animations, and a minimalist design aesthetic that elevates the beauty shopping journey into an art form.'
+    },
+    {
+      id: 2,
+      image: oyo,
+      title: 'Ejawa Fish Farmers Society',
+      tagline: 'Empowering Agricultural Communities',
+      stack: ["React", "TailwindCSS", "AgroTech", "Cooperative"],
+      link: "https://ejawastatefarm.vercel.app",
+      desc: 'A professional platform for the Oyo State Ejawa Fish Farmers Multipurpose Cooperative Society. Designed to unify and empower fish farmers by providing a central hub for community resources, society information, and membership engagement.'
+    },
+    {
+      id: 3,
+      image: fit,
+      title: '55 Fitness',
+      tagline: 'High-Energy Fitness & Training Platform',
+      stack: ["React", "TailwindCSS", "Gym UI", "Personal Brand"],
+      link: "https://josh-fitness.vercel.app",
+      desc: 'A bold, dynamic fitness platform designed to inspire transformation. Featuring a modern high-contrast dark theme, gym membership management, and workout programs, this site is built for users who want to "Make their Body Shape" with energy and style.'
+    },
+    {
+      id: 4,
+      image: port,
+      title: 'HiFashion Website',
+      tagline: 'Modern Fashion E-commerce',
+      stack: ["NextJs", "TailwindCss", "E-commerce"],
+      link: "http://josh-stores.vercel.app",
+      desc: 'Step into the realm of style and sophistication with this premier fashion portal. Discover curated trends and find inspiration for your next stunning look with our unparalleled selection and expert advice.'
+    },
     {
       id: 5,
-      title: 'ClearLink',
-      image: lol2,
-      link: "http://josh-clear-link.vercel.app",
-      tagline:'A simple landing page',
-      stack: ["NextJs", "TailwindCss"],
-      desc:'...',
-      },
-  
-    
-    
-  
-    
-  
-   
-  
+      image: flix,
+      title: 'JoshFlix',
+      tagline: 'Modern Movie Streaming Concept',
+      stack: ["React", "TMDB API", "Entertainment"],
+      link: "http://movieapp-josh-devv.vercel.app",
+      desc: 'Experience the ultimate cinematic journey with our cutting-edge movie web application. Dive into a world of endless entertainment, where you can discover and watch your favorite films effortlessly.'
+    }
   ];
 
   export default data

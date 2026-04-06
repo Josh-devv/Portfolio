@@ -1,111 +1,150 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import useFadeUpEffect from "../Hooks/fadeUp";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+import { motion } from "framer-motion";
+import { ArrowLeft, ExternalLink, Code, Info, Sparkles } from "lucide-react";
 import data from "../../data/list";
 
-export default function Projectdata() {
+export default function ProjectDetails() {
   const { id } = useParams();
-  const nav = useNavigate();
-  const item = data.find((item) => item.id === parseInt(id));
-  const element = useRef(null);
-  useFadeUpEffect(element);
+  const navigate = useNavigate();
+  const project = data.find((item, index) => index === parseInt(id));
 
   useEffect(() => {
-    document.title = "Project | Sofela Joshua";
-    return () => {
-      document.title = "Sofela Joshua | Frontend Developer";
-    };
-  }, []);
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    try {
-      const { hostname } = new URL(item.link);
-      window.open(`//${hostname}`, "_blank");
-    } catch (error) {
-      console.error("Invalid URL:", item.link);
+    window.scrollTo(0, 0);
+    if (project) {
+      document.title = `${project.title} | Case Study`;
     }
-  };
+  }, [project]);
+
+  if (!project) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold mb-4">Project not found</h2>
+          <button onClick={() => navigate("/projects")} className="text-primary hover:underline">
+            Back to Projects
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <section ref={element} className="fade translate-y-[100px]  opacity-5">
-      <div className="max-w-4xl mx-auto pt-10 px-5 xl:px-0">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-1">
-            <div
-              className="border border-gray-200 rounded-full w-10 h-10 flex items-center justify-center cursor-pointer"
-              onClick={() => nav(-1)}
-            >
-              <svg
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-                height="16"
-                width="14"
-                viewBox="0 0 448 512"
-              >
-                <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
-              </svg>
+    <section className="min-h-screen pb-20 pt-10">
+      <div className="container mx-auto px-6">
+        {/* Back Button & Title */}
+        <div className="max-w-5xl mx-auto mb-12">
+          <motion.button
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            onClick={() => navigate(-1)}
+            className="group flex items-center gap-2 text-zinc-500 hover:text-white transition-colors mb-8"
+          >
+            <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+            <span className="font-bold uppercase tracking-widest text-xs">Back to Gallery</span>
+          </motion.button>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex flex-col md:flex-row md:items-end justify-between gap-8"
+          >
+            <div>
+              <div className="flex items-center gap-3 text-primary font-bold mb-4 text-xs uppercase tracking-[0.2em]">
+                <Sparkles size={14} />
+                <span>Featured Project</span>
+              </div>
+              <h1 className="text-4xl lg:text-6xl font-bold text-white">{project.title}</h1>
+              <p className="text-xl text-zinc-400 mt-4 max-w-2xl">{project.tagline}</p>
             </div>
-            <h2 className="font-bold text-xl xl:text-3xl pl-3 text-gray-700 dark:text-white">
-              {item.title || <Skeleton />}
-            </h2>
-          </div>
+
+            <motion.a 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+              className="px-8 py-4 bg-primary text-white rounded-2xl font-bold flex items-center gap-2 shadow-[0_10px_30px_rgba(168,85,247,0.3)] hover:shadow-[0_15px_40px_rgba(168,85,247,0.5)] transition-all"
+            >
+              <span>Visit Live Project</span>
+              <ExternalLink size={18} />
+            </motion.a>
+          </motion.div>
         </div>
 
-        {item?.image ? (
-          <img
-            src={item?.image}
-            alt={`${item?.title} logo`}
-            className="rounded-xl image"
-          />
-        ) : (
-          <Skeleton height={150} baseColor="gray" />
-        )}
+        {/* Project Visual */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="max-w-6xl mx-auto relative group mb-20"
+        >
+          <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-secondary/20 to-accent/20 rounded-[48px] blur-3xl opacity-50 group-hover:opacity-75 transition duration-1000"></div>
+          <div className="relative rounded-[40px] overflow-hidden glass border border-white/10 aspect-video shadow-2xl">
+            <img 
+              src={project.image} 
+              alt={project.title} 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </motion.div>
 
-        <section className="my-8">
-          <h2 className="font-bold text-lg xl:text-2xl text-gray-700 pb-4 dark:text-white">
-            Overview
-          </h2>
-          <p>{item.desc}</p>
-          <br />
-
-          <a
-            href={item.link}
-            onClick={handleClick}
-            className="underline text-blue-500 flex items-center gap-1 cursor-pointer"
+        {/* Content Grid */}
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* Overview Section */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-2"
           >
-            <svg
-              fill="#3b82f6"
-              xmlns="http://www.w3.org/2000/svg"
-              height="16"
-              width="16"
-              viewBox="0 0 512 512"
-            >
-              <path d="M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V32c0-17.7-14.3-32-32-32H352zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z" />
-            </svg>
-            <span>View Live Website</span>
-          </a>
-        </section>
+            <div className="flex items-center gap-3 mb-6 text-white text-xl font-bold italic">
+               <Info className="text-primary" />
+               <h2>Project Overview</h2>
+            </div>
+            <div className="glass p-8 rounded-[32px] border border-white/5 space-y-6 text-zinc-400 leading-relaxed text-lg">
+              <p>{project.desc}</p>
+              <div className="pt-8 border-t border-white/5 flex flex-col gap-4">
+                 <h4 className="text-white font-bold flex items-center gap-2">
+                   <Sparkles size={16} className="text-yellow-500" /> Key Features
+                 </h4>
+                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                   {["Responsive Design", "Interactive UI", "Optimized Performance", "Accessibility Ready"].map(feature => (
+                     <li key={feature} className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5"></div>
+                        <span>{feature}</span>
+                     </li>
+                   ))}
+                 </ul>
+              </div>
+            </div>
+          </motion.div>
 
-        <section className="skills">
-          <h2 className="font-bold text-lg xl:text-2xl text-gray-700 pb-4 dark:text-white">
-            Stack/Technologies
-          </h2>
-
-          <ul className="pl-3">
-            {item?.stack?.length > 0 ? (
-              item.stack.map((stacks, i) => (
-                <li key={i} className="text-[#3c3b9b] font-bold">
-                  {stacks}
-                </li>
-              ))
-            ) : (
-              <Skeleton count={3} baseColor="gray" />
-            )}
-          </ul>
-        </section>
+          {/* Sidebar / Stack Info */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <div className="flex items-center gap-3 mb-6 text-white text-xl font-bold italic">
+               <Code className="text-secondary" />
+               <h2>Technology Stack</h2>
+            </div>
+            <div className="glass p-8 rounded-[32px] border border-white/5 flex flex-col gap-4">
+              {project.stack?.map((tech, idx) => (
+                <div key={idx} className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-colors">
+                  <span className="font-bold text-zinc-300">{tech}</span>
+                  <div className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(236,72,153,0.5)]"></div>
+                </div>
+              ))}
+              
+              <div className="mt-6 p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20">
+                 <p className="text-xs font-bold text-zinc-300 uppercase tracking-widest text-center">Implementation Focus</p>
+                 <p className="text-sm text-center mt-2 italic text-zinc-400">Clean architecture with modern design patterns.</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
