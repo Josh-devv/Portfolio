@@ -1,19 +1,73 @@
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
 import Hero from '../Structure/Hero';
 import data from '../../data/list';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, LayoutDashboard } from 'lucide-react';
 import { FaCode } from 'react-icons/fa';
+import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 export default function Main() {
   const featuredProjects = data.slice(0, 3);
+  const containerRef = useRef();
+
+  useGSAP(() => {
+    // Reveal animations for services
+    gsap.from(".service-card", {
+      y: 100,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".services-grid",
+        start: "top 85%",
+      }
+    });
+
+    // Reveal for projects header
+    gsap.from(".projects-header", {
+      x: -50,
+      opacity: 0,
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".projects-header",
+        start: "top 90%",
+      }
+    });
+
+    // Reveal for project cards
+    gsap.from(".project-card", {
+      y: 100,
+      opacity: 0,
+      duration: 1.2,
+      stagger: 0.3,
+      ease: "expo.out",
+      scrollTrigger: {
+        trigger: ".projects-grid",
+        start: "top 80%",
+      }
+    });
+
+    // Reveal for CTA
+    gsap.from(".cta-content", {
+      scale: 0.9,
+      opacity: 0,
+      duration: 1.5,
+      ease: "elastic.out(1, 0.75)",
+      scrollTrigger: {
+        trigger: ".cta-section",
+        start: "top 85%",
+      }
+    });
+  }, { scope: containerRef });
 
   return (
-    <div className="flex flex-col gap-16 sm:gap-20 pb-16 sm:pb-20">
+    <div ref={containerRef} className="flex flex-col gap-16 sm:gap-20 pb-16 sm:pb-20">
       <Hero />
 
       {/* Services */}
-      <section className="container mx-auto px-4 sm:px-6 py-16 sm:py-20">
+      <section className="container mx-auto px-4 sm:px-6 py-16 sm:py-20 services-grid">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {[
             { 
@@ -32,20 +86,16 @@ export default function Main() {
               desc: "Bringing static layouts to life with smooth, professional motion design." 
             }
           ].map((service, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="p-6 sm:p-8 glass rounded-[28px] sm:rounded-[32px] border border-white/5 hover:border-primary/20 transition-all group"
+              className="service-card p-6 sm:p-8 glass rounded-[28px] sm:rounded-[32px] border border-white/5 hover:border-primary/20 transition-all group interactive"
             >
               <div className="mb-4 sm:mb-6 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-zinc-900/50 w-fit group-hover:scale-110 transition-transform">
                 {service.icon}
               </div>
               <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">{service.title}</h3>
               <p className="text-zinc-500 text-sm sm:text-base leading-relaxed font-medium">{service.desc}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
@@ -53,7 +103,7 @@ export default function Main() {
       {/* Projects */}
       <section className="container font-display mx-auto px-4 sm:px-6 py-16 sm:py-20 bg-gradient-to-b from-transparent via-primary/5 to-transparent rounded-[32px] sm:rounded-[64px]">
         
-        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-12 sm:mb-16 gap-6">
+        <div className="projects-header flex flex-col sm:flex-row items-start sm:items-end justify-between mb-12 sm:mb-16 gap-6">
           <div>
             <div className="flex items-center gap-2 text-primary mb-3 uppercase tracking-[0.2em] text-[10px] sm:text-xs">
               <Sparkles size={14} />
@@ -66,21 +116,18 @@ export default function Main() {
 
           <Link 
             to="/projects" 
-            className="flex items-center gap-2 text-primary font-bold group text-sm sm:text-base"
+            className="flex items-center gap-2 text-primary font-bold group text-sm sm:text-base interactive"
           >
             <span>View All Projects</span>
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {featuredProjects.map((project, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="glass rounded-[28px] sm:rounded-[40px] overflow-hidden border border-white/5 flex flex-col group"
+              className="project-card glass rounded-[28px] sm:rounded-[40px] overflow-hidden border border-white/5 flex flex-col group interactive"
             >
               <div className="h-48 sm:h-56 lg:h-64 overflow-hidden relative">
                 <img 
@@ -112,19 +159,14 @@ export default function Main() {
                   </div>
                 </Link>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
 
       {/* CTA */}
-      <section className="container mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="glass p-8 sm:p-12 lg:p-16 rounded-[32px] sm:rounded-[48px] border border-primary/20 relative overflow-hidden group"
-        >
+      <section className="container mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center cta-section">
+        <div className="cta-content glass p-8 sm:p-12 lg:p-16 rounded-[32px] sm:rounded-[48px] border border-primary/20 relative overflow-hidden group">
           <div className="relative z-10 flex flex-col items-center">
             <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 sm:mb-8">
               <Sparkles size={28} />
@@ -142,12 +184,12 @@ export default function Main() {
 
             <a 
               href="https://www.instagram.com/joshtoyourears/"
-              className="px-8 sm:px-12 py-4 sm:py-5 bg-white text-black text-base sm:text-xl font-bold rounded-2xl sm:rounded-3xl hover:scale-105 transition"
+              className="magnetic-btn px-8 sm:px-12 py-4 sm:py-5 bg-white text-black text-base sm:text-xl font-bold rounded-2xl sm:rounded-3xl hover:scale-105 transition inline-block interactive"
             >
               Start a Conversation
             </a>
           </div>
-        </motion.div>
+        </div>
       </section>
     </div>
   );

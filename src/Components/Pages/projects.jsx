@@ -1,80 +1,67 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { ExternalLink, ArrowRight, Code } from "lucide-react";
 import data from "../../data/list";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-};
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export default function Projects() {
+  const containerRef = useRef();
+
   useEffect(() => {
     document.title = "Portfolio | Stunning Digital Experiences";
     window.scrollTo(0, 0);
   }, []);
 
+  useGSAP(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    tl.from(".projects-title-container > *", {
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.2,
+      delay: 0.2
+    })
+    .from(".project-card-wrapper", {
+      y: 60,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.1,
+      ease: "power2.out"
+    }, "-=0.5");
+
+    // Re-reveal on scroll if needed, but here a simple entrance is enough for the main list
+  }, { scope: containerRef });
+
   return (
-    <section className="min-h-screen font-display py-20 bg-background relative overflow-hidden">
+    <section ref={containerRef} className="min-h-screen font-display py-20 bg-background relative overflow-hidden">
       {/* Decorative Blur */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10"></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[120px] -z-10"></div>
 
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mb-16">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-2 text-primary font-medium mb-4"
-          >
+        <div className="max-w-4xl mb-16 projects-title-container">
+          <div className="flex items-center gap-2 text-primary font-medium mb-4">
             <div className="h-[2px] w-8 bg-primary"></div>
             <span>PORTFOLIO Showcase</span>
-          </motion.div>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl lg:text-6xl font-bold mb-6"
-          >
+          </div>
+          <h2 className="text-4xl lg:text-6xl font-bold mb-6">
             A Collection of Crafted <span className="text-gradient">Digital Masterpieces</span>
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-zinc-400 text-lg leading-relaxed"
-          >
+          </h2>
+          <p className="text-zinc-400 text-lg leading-relaxed">
             Explore my latest projects where design meets functionality. Focused on creating user-centric 
             interfaces with cutting-edge technology and pixel-perfect implementation.
-          </motion.p>
+          </p>
         </div>
 
-        <motion.div 
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 projects-grid">
           {data?.map((project, id) => (
-            <motion.div
+            <div
               key={id}
-              variants={item}
-              className="group relative"
+              className="project-card-wrapper group relative"
             >
-              <Link to={`/projects/${id}`} className="block h-full">
+              <Link to={`/projects/${id}`} className="block h-full interactive">
                 <div className="glass rounded-[32px] overflow-hidden border border-white/5 transition-all duration-500 hover:border-primary/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col h-full">
                   {/* Image Container */}
                   <div className="relative h-64 overflow-hidden aspect-video">
@@ -116,9 +103,9 @@ export default function Projects() {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

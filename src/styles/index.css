@@ -4,8 +4,11 @@
 
 :root {
   --primary: #a855f7;
+  --primary-rgb: 168, 85, 247;
   --secondary: #ec4899;
+  --secondary-rgb: 236, 72, 153;
   --accent: #3b82f6;
+  --accent-rgb: 59, 130, 246;
   --bg: #030014;
 }
 
