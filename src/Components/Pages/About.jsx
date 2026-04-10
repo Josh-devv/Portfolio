@@ -1,198 +1,191 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import { Sparkles } from "lucide-react";
+import { Sparkles, ArrowDown, Code, Globe, Zap, Cpu } from "lucide-react";
 import {
   FaGithub,
   FaTwitter,
   FaLinkedin,
-  FaDownload,
-  FaCode,
-  FaGraduationCap,
-  FaHtml5,
-  FaCss3Alt,
-  FaReact,
-  FaGitAlt,
-  FaTerminal
 } from "react-icons/fa";
-import { SiTypescript, SiNextdotjs, SiTailwindcss, SiFigma, SiVite, SiPostman } from "react-icons/si";
-import { CiFileOn } from "react-icons/ci";
-import { GoZap } from "react-icons/go";
+import { SiTypescript, SiNextdotjs, SiTailwindcss, SiFigma, SiVite } from "react-icons/si";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
-import cv2 from "../Pages/CV.pdf";
-import me from "../Pages/me.jpg";
-
 export default function About() {
   const containerRef = useRef();
-  const profileImgRef = useRef();
 
   useEffect(() => {
     document.title = "About | Sofela Joshua";
+    window.scrollTo(0, 0);
   }, []);
 
   useGSAP(() => {
-    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+    const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
 
-    tl.from(".about-entrance", {
-      y: 30,
+    tl.from(".reveal-text", {
+      y: 100,
       opacity: 0,
-      duration: 1.2,
+      duration: 1.5,
       stagger: 0.1,
       delay: 0.2
-    });
-
-    // Tech reveals
-    gsap.from(".tech-group", {
-      y: 20,
+    })
+    .from(".reveal-sub", {
       opacity: 0,
+      y: 20,
       duration: 1,
-      stagger: 0.15,
+    }, "-=1")
+    .from(".arsenal-item", {
+      opacity: 0,
+      y: 20,
+      stagger: 0.1,
+      duration: 1
+    }, "-=0.5");
+
+    // Scroll parallax for big text
+    gsap.to(".big-name", {
+      xPercent: -20,
       scrollTrigger: {
-        trigger: ".toolkit-section",
-        start: "top 85%"
+        trigger: containerRef.current,
+        scrub: 1,
+        start: "top top",
+        end: "bottom top"
       }
     });
 
   }, { scope: containerRef });
 
-  const techToolkit = [
-    { 
-      category: "Frontend", 
-      skills: [
-        { name: "React", icon: <FaReact className="text-[#61DAFB]" /> },
-        { name: "TypeScript", icon: <SiTypescript className="text-[#3178C6]" /> },
-        { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
-        { name: "Vite", icon: <SiVite className="text-[#646CFF]" /> }
-      ]
-    },
-    { 
-      category: "Styling", 
-      skills: [
-        { name: "Tailwind", icon: <SiTailwindcss className="text-[#38BDF8]" /> },
-        { name: "GSAP", icon: <GoZap className="text-[#88CE02]" /> },
-        { name: "CSS3", icon: <FaCss3Alt className="text-[#1572B6]" /> },
-        { name: "HTML5", icon: <FaHtml5 className="text-[#E34F26]" /> }
-      ]
-    },
-    { 
-      category: "Workflow", 
-      skills: [
-        { name: "Git", icon: <FaGitAlt className="text-[#F05032]" /> },
-        { name: "Figma", icon: <SiFigma className="text-[#F24E1E]" /> },
-        { name: "Postman", icon: <SiPostman className="text-[#FF6C37]" /> },
-        { name: "Terminal", icon: <FaTerminal className="text-zinc-500" /> }
-      ]
-    }
-  ];
-
   return (
-    <section ref={containerRef} className="min-h-screen pt-32 pb-24 bg-bg overflow-hidden relative selection:bg-white selection:text-black">
+    <section ref={containerRef} className="min-h-screen bg-bg pt-40 pb-32 overflow-hidden selection:bg-white selection:text-black">
+      
+      {/* Background Decor */}
+      <div className="fixed overflow-hidden pointer-events-none inset-0 -z-10 opacity-[0.03]">
+        <h1 className="big-name text-[35vw] font-black whitespace-nowrap text-white leading-none tracking-tighter uppercase translate-y-1/2">
+          Sofela Joshua • Sofela Joshua
+        </h1>
+      </div>
+
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
-
-          {/* LEFT: Portrait & Essentials */}
-          <div className="about-entrance w-full lg:w-[35%] lg:sticky lg:top-32">
-            <div ref={profileImgRef} className="relative group rounded-3xl overflow-hidden border border-white/5 bg-zinc-900 aspect-[4/5] mb-8 lg:mb-10 shadow-2xl">
-              <img
-                src={me}
-                alt="Sofela Joshua"
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <Link to="/about/resume" className="flex flex-col items-center justify-center p-6 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all group interactive">
-                <CiFileOn size={24} className="text-zinc-500 group-hover:text-white transition-colors mb-2" />
-                <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-400 group-hover:text-white">Résumé</span>
-              </Link>
-              <a href={cv2} download className="flex flex-col items-center justify-center p-6 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all group interactive">
-                <FaDownload size={20} className="text-zinc-500 group-hover:text-white transition-colors mb-2" />
-                <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-400 group-hover:text-white">CV</span>
-              </a>
-            </div>
-            
-            <a href="https://www.instagram.com/joshtoyourears/" target="_blank" rel="noreferrer" className="mt-4 flex items-center justify-center gap-3 p-5 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all group interactive w-full">
-              <span className="text-[11px] font-bold text-zinc-500 group-hover:text-white transition-colors tracking-tight">Connect on Instagram</span>
-            </a>
+        
+        {/* Editorial Header */}
+        <div className="max-w-5xl mb-32">
+          <div className="reveal-sub flex items-center gap-3 text-zinc-600 font-bold uppercase tracking-[0.5em] text-[10px] mb-8">
+            <Sparkles size={12} />
+            <span>The Identity</span>
           </div>
-
-          {/* RIGHT: Content & Toolkit */}
-          <div className="w-full lg:w-[65%] mt-12 lg:mt-0">
-            <div className="about-entrance mb-16 lg:mb-20">
-              <div className="flex items-center gap-3 text-zinc-600 font-bold mb-6 uppercase tracking-[0.4em] text-[10px]">
-                <div className="h-px w-10 bg-zinc-800"></div>
-                <span>About</span>
-              </div>
-              <h1 className="text-large text-white mb-8 tracking-tight leading-[1.1]">
-                Bridging Design & Engineering with <span className="text-zinc-700 italic">Vision.</span>
-              </h1>
-              <div className="space-y-6 text-zinc-500 text-base md:text-lg leading-relaxed max-w-2xl font-medium">
-                <p>Hi, I'm <span className="text-white font-bold tracking-tight">Sofela Joshua</span>, a Frontend Developer and Computer Science student focused on building high-performance, aesthetically stunning digital environments.</p>
-                <p>I specialize in building complex React ecosystems where speed and visual impact are balanced. My approach is centered on clean architecture and deep user interaction.</p>
-                <div className="inline-flex items-center gap-4 p-4 mt-4 glass rounded-2xl border border-white/5 w-full sm:w-auto">
-                   <div className="w-10 h-10 rounded-xl bg-zinc-900 flex items-center justify-center text-white flex-shrink-0">
-                      <FaGraduationCap size={18} />
-                   </div>
-                   <p className="text-[10px] sm:text-xs font-bold text-zinc-300 uppercase tracking-widest">B.Sc Computer Science</p>
+          <h2 className="reveal-text text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter mb-12 leading-[0.85] text-white italic">
+            Thinking <br /> <span className="text-zinc-800 not-italic">Differently.</span>
+          </h2>
+          <div className="reveal-sub grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 mt-20">
+             <p className="text-2xl md:text-3xl font-bold text-zinc-400 tracking-tight leading-snug">
+                Crafting high-performance digital environments for the global web.
+             </p>
+             <div className="space-y-6 text-zinc-600 text-lg leading-relaxed font-medium">
+                <p>
+                   I'm a Frontend Developer and Computer Science student passionate about the intersection of aesthetics and logic. 
+                   I don't just build websites; I engineer experiences that prioritize technical excellence and visual impact.
+                </p>
+                <div className="flex items-center gap-4 text-white text-[10px] uppercase font-black tracking-widest">
+                   <div className="w-12 h-px bg-zinc-800"></div>
+                   Scroll To Exploration <ArrowDown size={14} />
                 </div>
-              </div>
-            </div>
-
-            {/* TECHNICAL TOOLKIT */}
-            <section className="toolkit-section mb-20">
-              <h2 className="about-entrance text-xl md:text-2xl font-bold text-white mb-10 tracking-tight flex items-center gap-4">
-                <div className="w-8 h-8 rounded-lg bg-white text-black flex items-center justify-center">
-                   <FaCode size={14} />
-                </div>
-                Technical Toolkit
-              </h2>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                {techToolkit.map((group, idx) => (
-                  <div key={idx} className="tech-group space-y-4">
-                    <h4 className="text-[10px] uppercase tracking-[0.3em] font-black text-zinc-700 border-b border-zinc-900 pb-3 mb-6">{group.category}</h4>
-                    <div className="flex flex-col gap-3">
-                      {group.skills.map((skill, sIdx) => (
-                        <div key={sIdx} className="flex items-center justify-between p-4 glass rounded-2xl border border-white/0 hover:border-white/10 hover:bg-zinc-950 transition-all group interactive">
-                           <div className="flex items-center gap-3">
-                              <div className="w-8 h-8 rounded-lg bg-zinc-900 flex items-center justify-center grayscale group-hover:grayscale-0 transition-opacity">
-                                 {skill.icon}
-                              </div>
-                              <span className="text-sm font-bold text-zinc-500 group-hover:text-white transition-colors">{skill.name}</span>
-                           </div>
-                           <Sparkles size={12} className="text-zinc-900 group-hover:text-zinc-500 transition-colors" />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* SOCIAL */}
-            <section className="about-entrance">
-              <h2 className="text-xl md:text-2xl font-bold text-white mb-10 tracking-tight flex items-center gap-4">
-                Social Echoes
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {[
-                  { name: "Twitter", icon: <FaTwitter size={18} />, href: "https://twitter.com/sofelajoshua" },
-                  { name: "Github", icon: <FaGithub size={18} />, href: "https://github.com/josh-devv" },
-                  { name: "Linkedin", icon: <FaLinkedin size={18} />, href: "https://www.linkedin.com/in/oluwasegun-sofela-8a062b22b/" },
-                ].map((social, idx) => (
-                  <a key={idx} href={social.href} target="_blank" rel="noreferrer" className="flex items-center gap-4 p-5 md:p-6 glass rounded-2xl border border-white/5 hover:border-white/20 hover:bg-zinc-950 transition-all group interactive">
-                    <div className="p-3 rounded-xl bg-zinc-900 text-zinc-600 group-hover:text-white transition-all shadow-lg">
-                      {social.icon}
-                    </div>
-                    <span className="text-[10px] uppercase font-black tracking-[0.2em]">{social.name}</span>
-                  </a>
-                ))}
-              </div>
-            </section>
+             </div>
           </div>
         </div>
+
+        {/* Core Manifesto Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 py-32 border-t border-white/5 mt-32">
+           <div className="reveal-sub">
+              <h3 className="text-zinc-800 text-[10px] uppercase font-black tracking-[0.4em] mb-8">Concept</h3>
+              <div className="flex items-center gap-4 mb-6">
+                 <div className="w-10 h-10 rounded-full border border-zinc-900 flex items-center justify-center text-zinc-500">
+                    <Globe size={18} />
+                 </div>
+                 <h4 className="text-xl font-bold text-white">Global Reach</h4>
+              </div>
+              <p className="text-zinc-600 text-sm leading-relaxed">
+                 Building for broad scalability and accessibility using modern standard protocols.
+              </p>
+           </div>
+           
+           <div className="reveal-sub">
+              <h3 className="text-zinc-800 text-[10px] uppercase font-black tracking-[0.4em] mb-8">Architecture</h3>
+              <div className="flex items-center gap-4 mb-6">
+                 <div className="w-10 h-10 rounded-full border border-zinc-900 flex items-center justify-center text-zinc-500">
+                    <Cpu size={18} />
+                 </div>
+                 <h4 className="text-xl font-bold text-white">Clean Engineering</h4>
+              </div>
+              <p className="text-zinc-600 text-sm leading-relaxed">
+                 Prioritizing clean code architecture to ensure maintainable and high-performance React ecosystems.
+              </p>
+           </div>
+
+           <div className="reveal-sub">
+              <h3 className="text-zinc-800 text-[10px] uppercase font-black tracking-[0.4em] mb-8">Interaction</h3>
+              <div className="flex items-center gap-4 mb-6">
+                 <div className="w-10 h-10 rounded-full border border-zinc-900 flex items-center justify-center text-zinc-500">
+                    <Zap size={18} />
+                 </div>
+                 <h4 className="text-xl font-bold text-white">Fluid Motion</h4>
+              </div>
+              <p className="text-zinc-600 text-sm leading-relaxed">
+                 Integrating GSAP and native CSS animations to bring static interfaces to life.
+              </p>
+           </div>
+        </div>
+
+        {/* Technical Arsenal (Redesigned) */}
+        <div className="py-32 border-t border-white/5">
+           <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-white">Digital Arsenal.</h2>
+              <p className="text-zinc-600 text-sm uppercase font-bold tracking-[0.3em]">Tier 01 Toolkit</p>
+           </div>
+           
+           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                { name: "React Ecosystem", icon: <Code />, tags: ["Next.js", "Vite", "Query"] },
+                { name: "Logic & Types", icon: <SiTypescript />, tags: ["TypeScript", "JS-ES20", "Node"] },
+                { name: "Visual Layer", icon: <SiTailwindcss />, tags: ["Tailwind", "GSAP", "SASS"] },
+                { name: "Creative Suite", icon: <SiFigma />, tags: ["Figma", "Photoshop", "AI"] }
+              ].map((item, idx) => (
+                <div key={idx} className="arsenal-item p-10 bg-zinc-950 border border-white/5 hover:border-white/10 transition-colors">
+                   <div className="text-zinc-700 mb-8 transform scale-150 origin-left">
+                      {item.icon}
+                   </div>
+                   <h4 className="text-lg font-bold text-white mb-6 uppercase tracking-tight">{item.name}</h4>
+                   <div className="flex flex-wrap gap-2 mt-auto">
+                      {item.tags.map(tag => (
+                        <span key={tag} className="text-[9px] text-zinc-800 uppercase font-black tracking-widest border border-zinc-900 px-2 py-0.5">
+                           {tag}
+                        </span>
+                      ))}
+                   </div>
+                </div>
+              ))}
+           </div>
+        </div>
+
+        {/* Social Echoes */}
+        <div className="py-32 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-12">
+           <p className="text-zinc-800 text-[10px] uppercase font-black tracking-[0.5em]">Sofela Joshua &copy; Archive</p>
+           <div className="flex items-center gap-12">
+              {[
+                { name: "Twitter", href: "https://twitter.com/sofelajoshua", icon: <FaTwitter /> },
+                { name: "Github", href: "https://github.com/josh-devv", icon: <FaGithub /> },
+                { name: "Insta", href: "https://www.instagram.com/joshtoyourears/", icon: <Globe /> }
+              ].map((social, idx) => (
+                <a 
+                  key={idx} 
+                  href={social.href} 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="text-zinc-600 hover:text-white transition-colors flex items-center gap-3 text-xs uppercase font-bold tracking-[0.2em] interactive"
+                >
+                  {social.icon} {social.name}
+                </a>
+              ))}
+           </div>
+        </div>
+
       </div>
     </section>
   );
