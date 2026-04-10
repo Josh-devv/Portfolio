@@ -15,8 +15,19 @@ export default function Navbar() {
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    
+    // Body scroll lock
+    if (isNavOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isNavOpen]);
 
   useGSAP(() => {
     if (isNavOpen) {
@@ -80,25 +91,47 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Nav Overlay */}
+      {/* Full-screen Mobile Nav Overlay */}
       {isNavOpen && (
-        <div className="fixed inset-0 bg-black z-40 md:hidden flex flex-col justify-center px-12">
-          <button className="absolute top-8 right-6 text-white" onClick={() => setIsNavOpen(false)}><X size={32} /></button>
-          <ul className="flex flex-col gap-8">
+        <div className="fixed inset-0 bg-black z-[999] md:hidden flex flex-col pt-32 pb-16 px-8 sm:px-12 h-screen w-full overflow-y-auto">
+          {/* Close Button Header */}
+          <div className="absolute top-0 left-0 right-0 h-24 flex items-center justify-between px-6 border-b border-white/5 bg-black">
+             <span className="text-[10px] uppercase font-bold tracking-[0.5em] text-zinc-700">Navigation</span>
+             <button 
+                className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center interactive" 
+                onClick={() => setIsNavOpen(false)}
+                aria-label="Close Menu"
+              >
+                <X size={20} />
+              </button>
+          </div>
+
+          <ul className="flex flex-col gap-8 mt-12">
             {navLinks.map((link) => (
               <li key={link.name} className="mobile-menu-item">
                 <Link
                   to={link.path}
                   onClick={() => setIsNavOpen(false)}
-                  className={`text-2xl font-bold tracking-tighter transition-colors ${
-                    location.pathname === link.path ? 'text-white' : 'text-zinc-800'
+                  className={`text-5xl font-black tracking-tighter transition-colors block ${
+                    location.pathname === link.path ? 'text-white' : 'text-zinc-500'
                   }`}
                 >
-                  {link.name}.
+                  {link.name}<span className="text-zinc-800">.</span>
                 </Link>
               </li>
             ))}
           </ul>
+
+          <div className="mt-auto flex flex-col gap-6 pt-12 border-t border-white/5">
+             <div className="flex flex-col gap-2">
+                <p className="text-[10px] uppercase font-black tracking-[0.4em] text-zinc-800">Connection Points</p>
+                <div className="flex flex-wrap gap-8 mt-2">
+                   <a href="https://github.com/Josh-devv" target="_blank" rel="noreferrer" className="text-sm font-bold text-zinc-500 hover:text-white transition-colors">Github</a>
+                   <a href="https://www.instagram.com/joshtoyourears/" target="_blank" rel="noreferrer" className="text-sm font-bold text-zinc-500 hover:text-white transition-colors">Instagram</a>
+                </div>
+             </div>
+             <p className="text-[9px] uppercase font-bold tracking-[0.2em] text-zinc-900">&copy; 2024 Joshua Sofela • Premium Archive</p>
+          </div>
         </div>
       )}
     </nav>

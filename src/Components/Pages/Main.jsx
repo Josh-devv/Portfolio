@@ -35,29 +35,29 @@ export default function Main() {
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} className="flex flex-col bg-bg">
+    <div ref={containerRef} className="flex flex-col bg-bg overflow-hidden">
       <Hero />
 
       {/* Featured Projects Selection */}
-      <section className="project-section container mx-auto px-6 py-24 border-t border-white/5">
-        <div className="section-eyebrow mb-20">
+      <section className="project-section container mx-auto px-6 py-16 md:py-32 border-t border-white/5">
+        <div className="section-eyebrow mb-12 md:mb-20">
           <div className="flex items-center gap-3 text-white font-bold uppercase tracking-[0.3em] text-[10px] mb-6">
             <Sparkles size={12} className="text-zinc-600" />
             <span>Featured Case Studies</span>
           </div>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-none">
+          <h2 className="text-huge leading-none">
             Selected <span className="text-zinc-700">Work.</span>
           </h2>
         </div>
 
-        <div className="project-cards-grid grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
+        <div className="project-cards-grid grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 md:gap-y-24">
           {featuredProjects.map((project, idx) => (
             <Link
               key={idx}
               to={`/projects/${idx}`}
-              className="project-card block interactive"
+              className="project-card group block interactive"
             >
-              <div className="relative overflow-hidden aspect-[16/10] mb-8 bg-zinc-900 border border-white/5 rounded-2xl">
+              <div className="relative overflow-hidden aspect-[16/10] mb-6 md:mb-8 bg-zinc-900 border border-white/5 rounded-2xl">
                 <img 
                   src={project.image} 
                   alt={project.title} 
@@ -66,11 +66,11 @@ export default function Main() {
               </div>
 
               <div className="flex flex-col gap-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-2xl font-bold text-white tracking-tight">
+                <div className="flex items-start justify-between gap-4">
+                  <h3 className="text-large text-white tracking-tight">
                     {project.title}
                   </h3>
-                  <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-zinc-500">
+                  <div className="hidden sm:flex w-10 h-10 rounded-full border border-white/5 items-center justify-center text-zinc-500 flex-shrink-0">
                     <ArrowRight size={18} />
                   </div>
                 </div>
@@ -78,40 +78,43 @@ export default function Main() {
                    <span className="text-zinc-700 font-mono text-[9px] uppercase font-bold tracking-[0.2em] border border-zinc-900 px-2 py-0.5 rounded">
                     {project.stack?.[0]}
                   </span>
-                  <span className="text-zinc-800 text-[9px] uppercase font-bold tracking-[0.2em]">Read Case Study</span>
+                  <span className="text-zinc-800 text-[9px] uppercase font-black tracking-[0.2em] hidden sm:block">Full Case Study</span>
                 </div>
-                <p className="text-zinc-500 text-sm font-medium leading-relaxed line-clamp-2">
-                  {project.tagline}. {project.desc.slice(0, 100)}...
+                <p className="text-zinc-500 text-sm md:text-base font-medium leading-relaxed line-clamp-2 md:line-clamp-3">
+                  {project.tagline}. {project.desc}
                 </p>
+                <div className="sm:hidden flex items-center gap-2 text-white font-bold text-[10px] uppercase tracking-widest mt-2">
+                   View Project <ArrowRight size={14} />
+                </div>
               </div>
             </Link>
           ))}
         </div>
 
-        <div className="mt-24 flex justify-center">
+        <div className="mt-20 md:mt-32 flex justify-center">
           <Link 
             to="/projects" 
             className="flex items-center gap-6 text-white font-bold uppercase text-[10px] tracking-[0.4em] pb-2 border-b-2 border-zinc-900 hover:border-white transition-all interactive"
           >
-            All Archive / {data.length} Works 
+            Archive / All Works 
             <ArrowRight size={14} />
           </Link>
         </div>
       </section>
 
       {/* Simplified CTA */}
-      <section className="bg-zinc-950 py-24 border-t border-white/5">
+      <section className="bg-zinc-950 py-20 md:py-32 border-t border-white/5">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-10 tracking-tight leading-none">
-            Let's build <br /> <span className="text-zinc-800 italic">together.</span>
+          <h2 className="text-large text-white mb-10 leading-none">
+            Ready for a <br /> <span className="text-zinc-800 italic">new mission?</span>
           </h2>
           <a 
             href="https://www.instagram.com/joshtoyourears/" 
             target="_blank"
             rel="noreferrer"
-            className="inline-block px-12 py-5 bg-white text-black font-bold uppercase text-[10px] tracking-[0.4em] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all"
+            className="inline-block px-10 md:px-12 py-4 md:py-5 bg-white text-black font-bold uppercase text-[10px] tracking-[0.4em] hover:bg-zinc-200 transition-all"
           >
-            Contact Now
+            Start Project
           </a>
         </div>
       </section>
