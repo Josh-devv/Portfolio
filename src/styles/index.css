@@ -1,89 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
 :root {
-  --primary: #a855f7;
-  --primary-rgb: 168, 85, 247;
-  --secondary: #ec4899;
-  --secondary-rgb: 236, 72, 153;
-  --accent: #3b82f6;
-  --accent-rgb: 59, 130, 246;
-  --bg: #030014;
+  --primary: #ffffff;
+  --primary-rgb: 255, 255, 255;
+  --secondary: #e5e7eb;
+  --secondary-rgb: 229, 231, 235;
+  --accent: #a1a1aa;
+  --accent-rgb: 161, 161, 170;
+  --bg: #030303;
 }
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  
   scrollbar-width: thin;
-  scrollbar-color: var(--primary) var(--bg);
+  scrollbar-color: #333 #030303;
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg);
+  background: #030303;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 10px;
+  background: #333;
 }
 
 html, body {
-  background-color: var(--bg);
-  color: white;
+  background-color: #030303;
+  color: #d1d5db;
+  font-family: 'Outfit', sans-serif;
   min-height: 100vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
+h1, h2, h3, h4, .font-display {
+  font-family: 'Outfit', sans-serif;
+}
+
+p, span, div, .font-body {
+  font-family: 'Inter', sans-serif;
+}
+
 .glass {
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #3b82f6 100%);
+  background: linear-gradient(to right, #ffffff, #a1a1aa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.bg-gradient-mesh {
-  background-color: var(--bg);
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.15) 0, transparent 50%),
-    radial-gradient(at 50% 0%, rgba(236, 72, 153, 0.1) 0, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.15) 0, transparent 50%);
+/* Reduced size utilities */
+.text-huge { 
+  font-size: 2.25rem; 
+  font-weight: 700; 
+  letter-spacing: -0.05em; 
+}
+@media (min-width: 640px) { .text-huge { font-size: 3rem; } }
+@media (min-width: 768px) { .text-huge { font-size: 3.75rem; } }
+@media (min-width: 1024px) { .text-huge { font-size: 4.5rem; } }
+
+.text-large { 
+  font-size: 1.875rem; 
+  font-weight: 700; 
+  letter-spacing: -0.025em; 
+}
+@media (min-width: 640px) { .text-large { font-size: 2.25rem; } }
+@media (min-width: 768px) { .text-large { font-size: 3rem; } }
+
+.interactive {
+  cursor: pointer;
 }
 
-.card-hover {
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.animate-shimmer {
+  animation: shimmer 3s infinite;
 }
 
-.card-hover:hover {
-  transform: translateY(-10px) scale(1.02);
-  border-color: rgba(168, 85, 247, 0.4);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Cabin', sans-serif;
-  letter-spacing: -0.02em;
+@layer utilities {
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
 }

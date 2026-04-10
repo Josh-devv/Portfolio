@@ -41,6 +41,7 @@ export default function CustomCursor() {
     const onMouseDown = () => {
       gsap.to(follower, {
         scale: 0.8,
+        backgroundColor: 'rgba(255, 255, 255, 0.1)',
         duration: 0.2
       });
     };
@@ -48,38 +49,44 @@ export default function CustomCursor() {
     const onMouseUp = () => {
       gsap.to(follower, {
         scale: 1,
+        backgroundColor: 'transparent',
         duration: 0.2
       });
     };
 
-    const links = document.querySelectorAll('a, button, .interactive');
-    links.forEach(link => {
-      link.addEventListener('mouseenter', () => {
-        gsap.to(follower, {
-          scale: 2.5,
-          backgroundColor: 'rgba(var(--primary-rgb), 0.2)',
-          borderWidth: 0,
-          duration: 0.3
+    const handleLinkHover = () => {
+      const links = document.querySelectorAll('a, button, .interactive');
+      links.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+          gsap.to(follower, {
+            scale: 2.5,
+            backgroundColor: 'white',
+            mixBlendMode: 'difference',
+            borderWidth: 0,
+            duration: 0.3
+          });
+          gsap.to(cursor, {
+            scale: 0,
+            duration: 0.2
+          });
         });
-        gsap.to(cursor, {
-          scale: 0.5,
-          duration: 0.3
+        link.addEventListener('mouseleave', () => {
+          gsap.to(follower, {
+            scale: 1,
+            backgroundColor: 'transparent',
+            mixBlendMode: 'normal',
+            borderWidth: 1,
+            duration: 0.3
+          });
+          gsap.to(cursor, {
+            scale: 1,
+            duration: 0.2
+          });
         });
       });
-      link.addEventListener('mouseleave', () => {
-        gsap.to(follower, {
-          scale: 1,
-          backgroundColor: 'transparent',
-          borderWidth: 1,
-          duration: 0.3
-        });
-        gsap.to(cursor, {
-          scale: 1,
-          duration: 0.3
-        });
-      });
-    });
+    };
 
+    handleLinkHover();
     window.addEventListener('mousemove', onMouseMove);
     window.addEventListener('mousedown', onMouseDown);
     window.addEventListener('mouseup', onMouseUp);
@@ -99,12 +106,12 @@ export default function CustomCursor() {
     <>
       <div 
         ref={cursorRef} 
-        className="fixed top-0 left-0 w-2 h-2 bg-primary rounded-full pointer-events-none z-[9999] mix-blend-difference opacity-0 shadow-[0_0_10px_rgba(var(--primary-rgb),0.5)]" 
+        className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none z-[9999] opacity-0" 
         style={{ transform: 'translate(-50%, -50%)' }}
       />
       <div 
         ref={followerRef} 
-        className="fixed top-0 left-0 w-8 h-8 border border-primary/50 rounded-full pointer-events-none z-[9998] mix-blend-difference opacity-0" 
+        className="fixed top-0 left-0 w-8 h-8 border border-white/20 rounded-full pointer-events-none z-[9998] opacity-0" 
         style={{ transform: 'translate(-50%, -50%)' }}
       />
     </>

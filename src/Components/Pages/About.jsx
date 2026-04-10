@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Sparkles } from "lucide-react";
 import {
   FaGithub,
   FaTwitter,
@@ -8,223 +9,196 @@ import {
   FaDownload,
   FaCode,
   FaGraduationCap,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaReact,
+  FaGitAlt,
+  FaTerminal
 } from "react-icons/fa";
+import { SiTypescript, SiNextdotjs, SiTailwindcss, SiFigma, SiVite, SiPostman } from "react-icons/si";
 import { CiFileOn, CiMail } from "react-icons/ci";
 import { LuLayers3 } from "react-icons/lu";
 import { GoZap } from "react-icons/go";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
-import CV from "../Pages/Workresume.pdf";
 import cv2 from "../Pages/CV.pdf";
 import me from "../Pages/me.jpg";
 
 export default function About() {
   const containerRef = useRef();
+  const profileImgRef = useRef();
 
   useEffect(() => {
-    document.title = "About Me | Crafting with Passion";
+    document.title = "About Me | Premium Experience";
   }, []);
 
   useGSAP(() => {
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
-    tl.from(".about-left", {
-      x: -50,
-      opacity: 0,
-      duration: 1.2,
-      delay: 0.2
-    })
-    .from(".about-right-content > *", {
+    tl.from(".about-entrance", {
       y: 30,
       opacity: 0,
-      duration: 0.8,
-      stagger: 0.15,
-    }, "-=0.8");
-
-    // Magnetic effect for profile cards
-    const magneticItems = document.querySelectorAll('.magnetic-item');
-    magneticItems.forEach(item => {
-      item.addEventListener('mousemove', (e) => {
-        const rect = item.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        
-        gsap.to(item, {
-          x: x * 0.2,
-          y: y * 0.2,
-          duration: 0.3,
-          ease: "power2.out"
-        });
-      });
-      
-      item.addEventListener('mouseleave', () => {
-        gsap.to(item, {
-          x: 0,
-          y: 0,
-          duration: 0.5,
-          ease: "elastic.out(1, 0.3)"
-        });
-      });
+      duration: 1.2,
+      stagger: 0.1,
+      delay: 0.2
     });
+
+    // Tech reveals
+    gsap.from(".tech-group", {
+      y: 20,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.15,
+      scrollTrigger: {
+        trigger: ".toolkit-section",
+        start: "top 85%"
+      }
+    });
+
   }, { scope: containerRef });
 
-  const technologies = [
-    { name: "React", level: "Expert", icon: <FaCode className="text-primary" /> },
-    { name: "Typescript", level: "Advanced", icon: <FaCode className="text-accent" /> },
-    { name: "Next.js", level: "Advanced", icon: <LuLayers3 className="text-secondary" /> },
-    { name: "Tailwind CSS", level: "Expert", icon: <GoZap className="text-yellow-400" /> },
-    { name: "GSAP", level: "Intermediate", icon: <GoZap className="text-green-400" /> },
-    { name: "Git", level: "Advanced", icon: <FaGithub className="text-zinc-400" /> },
+  const techToolkit = [
+    { 
+      category: "Frontend Core", 
+      skills: [
+        { name: "React", icon: <FaReact className="text-[#61DAFB]" /> },
+        { name: "TypeScript", icon: <SiTypescript className="text-[#3178C6]" /> },
+        { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
+        { name: "Vite", icon: <SiVite className="text-[#646CFF]" /> }
+      ]
+    },
+    { 
+      category: "Styling & Motion", 
+      skills: [
+        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-[#38BDF8]" /> },
+        { name: "GSAP", icon: <GoZap className="text-[#88CE02]" /> },
+        { name: "CSS3", icon: <FaCss3Alt className="text-[#1572B6]" /> },
+        { name: "HTML5", icon: <FaHtml5 className="text-[#E34F26]" /> }
+      ]
+    },
+    { 
+      category: "Tools & Workflow", 
+      skills: [
+        { name: "Git", icon: <FaGitAlt className="text-[#F05032]" /> },
+        { name: "Figma", icon: <SiFigma className="text-[#F24E1E]" /> },
+        { name: "Postman", icon: <SiPostman className="text-[#FF6C37]" /> },
+        { name: "Terminal", icon: <FaTerminal className="text-zinc-500" /> }
+      ]
+    }
   ];
 
   return (
-    <section ref={containerRef} className="min-h-screen font-display pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex flex-col lg:flex-row gap-10 sm:gap-14 lg:gap-16 items-start">
+    <section ref={containerRef} className="min-h-screen pt-32 pb-24 bg-bg overflow-hidden relative selection:bg-white selection:text-black">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
 
-          {/* LEFT COLUMN */}
-          <div className="about-left w-full lg:w-1/3 sticky lg:top-32">
-            <div className="relative group max-w-sm mx-auto lg:mx-0">
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-[40px] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-
-              <div className="relative aspect-square rounded-[28px] sm:rounded-[32px] overflow-hidden glass border border-white/10">
-                <img
-                  src={me}
-                  alt="Sofela Joshua"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                />
-              </div>
+          {/* LEFT: Portrait & Essentials */}
+          <div className="about-entrance w-full lg:w-[35%] sticky top-32">
+            <div ref={profileImgRef} className="relative group rounded-3xl overflow-hidden border border-white/5 bg-zinc-950 aspect-[4/5] mb-10 shadow-2xl">
+              <img
+                src={me}
+                alt="Sofela Joshua"
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
             </div>
 
-            <div className="mt-6 sm:mt-8 grid grid-cols-2 gap-3 sm:gap-4">
-              <Link
-                to="/about/resume"
-                className="magnetic-item flex flex-col items-center justify-center gap-2 sm:gap-3 p-4 sm:p-6 glass rounded-2xl sm:rounded-3xl border border-white/5 hover:border-primary/30 transition-all group interactive"
-              >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                  <CiFileOn size={18} />
-                </div>
-                <span className="text-xs sm:text-sm font-bold">Résumé</span>
+            <div className="grid grid-cols-2 gap-4">
+              <Link to="/about/resume" className="flex flex-col items-center justify-center p-6 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all group interactive">
+                <CiFileOn size={24} className="text-zinc-500 group-hover:text-white transition-colors mb-2" />
+                <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-400 group-hover:text-white">Résumé</span>
               </Link>
-
-              <a
-                href={cv2}
-                download="Sofela_Joshua_CV"
-                className="magnetic-item flex flex-col items-center justify-center gap-2 sm:gap-3 p-4 sm:p-6 glass rounded-2xl sm:rounded-3xl border border-white/5 hover:border-secondary/30 transition-all group interactive"
-              >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
-                  <FaDownload size={18} />
-                </div>
-                <span className="text-xs sm:text-sm font-bold">Download</span>
+              <a href={cv2} download className="flex flex-col items-center justify-center p-6 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all group interactive">
+                <FaDownload size={20} className="text-zinc-500 group-hover:text-white transition-colors mb-2" />
+                <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-400 group-hover:text-white">Download CV</span>
               </a>
             </div>
-
+            
             <a
-              href="mailto:sofelajoshua@gmail.com"
-              className="mt-4 flex items-center justify-center gap-2 sm:gap-3 p-4 sm:p-6 glass rounded-2xl sm:rounded-3xl border border-white/5 hover:border-accent/30 transition-all group w-full interactive"
+              href="https://www.instagram.com/joshtoyourears/"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-4 flex items-center justify-center gap-3 p-5 glass rounded-2xl border border-white/5 hover:border-white/20 transition-all group interactive w-full"
             >
-              <CiMail size={16} className="text-accent" />
-              <span className="text-xs sm:text-sm font-bold text-zinc-400 group-hover:text-white transition-colors break-all">
-                sofelajoshua@gmail.com
-              </span>
+              <span className="text-[11px] font-bold text-zinc-500 group-hover:text-white transition-colors tracking-tight">@joshtoyourears</span>
             </a>
           </div>
 
-          {/* RIGHT COLUMN */}
-          <div className="about-right-content w-full lg:w-2/3">
-            <div className="mb-10 sm:mb-12">
-              <div className="flex items-center gap-2 text-primary font-bold mb-3 sm:mb-4 uppercase tracking-[0.2em] text-[10px] sm:text-xs">
-                <div className="h-px w-6 sm:w-8 bg-primary"></div>
+          {/* RIGHT: Content & Toolkit */}
+          <div className="w-full lg:w-[65%]">
+            <div className="about-entrance mb-20">
+              <div className="flex items-center gap-3 text-zinc-600 font-bold mb-6 uppercase tracking-[0.4em] text-[10px]">
+                <div className="h-px w-10 bg-zinc-800"></div>
                 <span>About Me</span>
               </div>
-
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight">
-                I'm <span className="text-gradient">Sofela Joshua</span>, a Frontend Developer crafting modern web experiences.
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-10 tracking-tighter leading-[1.1]">
+                Bridging the Gap Between <span className="text-zinc-700 italic">Vision</span> & Implementation.
               </h1>
-
-              <div className="space-y-5 sm:space-y-6 text-zinc-400 text-base sm:text-lg leading-relaxed max-w-3xl">
-                <p>
-                  As a Computer Science student and a driven Frontend Developer with over a year of deep immersion in the field,
-                  I specialize in crafting interactive, high-performance, and visually stunning user interfaces.
-                </p>
-
-                <p>
-                  My journey is fueled by a passion for solving complex problems through elegant code and modern tools.
-                  I don't just build websites; I build digital solutions that prioritize both aesthetic excellence and
-                  functional precision.
-                </p>
-
-                <div className="flex items-start sm:items-center gap-3 sm:gap-4 p-3 sm:p-4 glass rounded-2xl border border-primary/10">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary shrink-0">
-                    <FaGraduationCap size={18} />
-                  </div>
-                  <p className="text-xs sm:text-sm font-medium text-zinc-300">
-                    Currently studying Computer Science • Focused on Software Engineering & UI/UX
-                  </p>
+              <div className="space-y-6 text-zinc-500 text-lg leading-relaxed max-w-2xl font-medium">
+                <p>Welcome. I'm <span className="text-white font-bold tracking-tight">Sofela Joshua</span>, a Frontend Developer and Computer Science student obsessed with high-performance web architecture.</p>
+                <p>I specialize in building complex React ecosystems where speed, accessibility, and visual impact are never compromised. My approach is rooted in clean code and a deep understanding of user psychology.</p>
+                <div className="inline-flex items-center gap-4 p-4 mt-4 glass rounded-2xl border border-white/5">
+                   <div className="w-10 h-10 rounded-xl bg-zinc-900 flex items-center justify-center text-white">
+                      <FaGraduationCap size={18} />
+                   </div>
+                   <p className="text-xs font-bold text-zinc-300">B.Sc Computer Science • Software Engineering Focus</p>
                 </div>
               </div>
             </div>
 
-            {/* TECH */}
-            <section className="mb-12 sm:mb-16">
-              <h2 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3 italic">
-                <FaCode className="text-primary" /> Core Technologies
+            {/* TECHNICAL TOOLKIT (COMPLETED) */}
+            <section className="toolkit-section mb-20">
+              <h2 className="about-entrance text-2xl font-bold text-white mb-10 tracking-tight flex items-center gap-4">
+                <div className="w-8 h-8 rounded-lg bg-white text-black flex items-center justify-center">
+                   <FaCode size={14} />
+                </div>
+                The Technical Toolkit
               </h2>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                {technologies.map((tech, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center justify-between p-4 sm:p-5 glass rounded-xl sm:rounded-2xl border border-white/5 hover:border-primary/20 transition-all group interactive"
-                  >
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-zinc-900 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        {tech.icon}
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-sm sm:text-base text-white">{tech.name}</h4>
-                        <p className="text-[10px] sm:text-xs text-zinc-500 uppercase tracking-widest font-bold mt-1">
-                          {tech.level}
-                        </p>
-                      </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {techToolkit.map((group, idx) => (
+                  <div key={idx} className="tech-group space-y-4">
+                    <h4 className="text-[10px] uppercase tracking-[0.3em] font-black text-zinc-700 border-b border-zinc-900 pb-3 mb-6">{group.category}</h4>
+                    <div className="flex flex-col gap-3">
+                      {group.skills.map((skill, sIdx) => (
+                        <div key={sIdx} className="flex items-center justify-between p-4 glass rounded-2xl border border-white/0 hover:border-white/10 hover:bg-zinc-950 transition-all group interactive">
+                           <div className="flex items-center gap-3">
+                              <div className="w-8 h-8 rounded-lg bg-zinc-900 flex items-center justify-center grayscale group-hover:grayscale-0 transition-opacity">
+                                 {skill.icon}
+                              </div>
+                              <span className="text-sm font-bold text-zinc-500 group-hover:text-white transition-colors">{skill.name}</span>
+                           </div>
+                           <Sparkles size={12} className="text-zinc-900 group-hover:text-zinc-500 transition-colors" />
+                        </div>
+                      ))}
                     </div>
-
-                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
                   </div>
                 ))}
               </div>
             </section>
 
-            {/* SOCIAL */}
-            <section>
-              <h2 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3 italic">
-                digital Footprint
+            {/* FOOTPRINT */}
+            <section className="about-entrance">
+              <h2 className="text-2xl font-bold text-white mb-10 tracking-tight flex items-center gap-4">
+                Digital Footprint
               </h2>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {[
-                  { name: "Twitter", icon: <FaTwitter size={16} />, href: "https://twitter.com/sofelajoshua" },
-                  { name: "Github", icon: <FaGithub size={16} />, href: "https://github.com/josh-devv" },
-                  { name: "Linkedin", icon: <FaLinkedin size={16} />, href: "https://www.linkedin.com/in/oluwasegun-sofela-8a062b22b/" },
+                  { name: "Twitter", icon: <FaTwitter size={18} />, href: "https://twitter.com/sofelajoshua" },
+                  { name: "Github", icon: <FaGithub size={18} />, href: "https://github.com/josh-devv" },
+                  { name: "Linkedin", icon: <FaLinkedin size={18} />, href: "https://www.linkedin.com/in/oluwasegun-sofela-8a062b22b/" },
                 ].map((social, idx) => (
-                  <a
-                    key={idx}
-                    href={social.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-2 sm:gap-3 p-3 sm:p-4 glass rounded-xl sm:rounded-2xl border border-white/5 transition-all group interactive"
-                  >
-                    <div className="p-2 rounded-lg bg-zinc-900 group-hover:bg-primary/20 transition-colors">
+                  <a key={idx} href={social.href} target="_blank" rel="noreferrer" className="flex items-center gap-4 p-6 glass rounded-2xl border border-white/5 hover:border-white/20 hover:bg-zinc-950 transition-all group interactive">
+                    <div className="p-3 rounded-xl bg-zinc-900 text-zinc-600 group-hover:text-white transition-all shadow-lg">
                       {social.icon}
                     </div>
-                    <span className="font-bold text-xs sm:text-sm">{social.name}</span>
+                    <span className="text-xs uppercase font-black tracking-widest">{social.name}</span>
                   </a>
                 ))}
               </div>
             </section>
-
           </div>
         </div>
       </div>
