@@ -20,14 +20,14 @@ export default function Blogs() {
             </div>
             
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Insights Under <span className="text-gradient">Construction</span></h2>
-            <p className="text-zinc-500 text-lg leading-relaxed mb-10">
+            <p className="text-zinc-300 text-lg leading-relaxed mb-10">
               I'm currently distilling my experiences and architectural patterns into a series of in-depth articles. 
               The technical blog is launching soon.
             </p>
 
             <div className="flex items-center justify-center gap-4 py-4 px-8 bg-white/5 rounded-full w-fit mx-auto border border-white/5">
                <Clock size={18} className="text-primary animate-pulse" />
-               <span className="text-sm font-bold tracking-widest uppercase text-zinc-400">Estimated Arrival: Q3 2026</span>
+               <span className="text-sm font-bold tracking-widest uppercase text-zinc-200">Estimated Arrival: Q3 2026</span>
             </div>
 
             <div className="absolute -z-10 -bottom-10 -right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl"></div>

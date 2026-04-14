@@ -57,7 +57,7 @@ export default function ProjectDetails() {
         <div className="max-w-4xl mx-auto mb-20">
           <button
             onClick={() => navigate(-1)}
-            className="detail-entrance flex items-center gap-3 text-zinc-500 hover:text-white transition-colors mb-12"
+            className="detail-entrance flex items-center gap-3 text-zinc-300 hover:text-white transition-colors mb-12"
           >
             <ArrowLeft size={18} />
             <span className="font-black uppercase tracking-[0.2em] text-[10px]">Back to Collections</span>
@@ -72,7 +72,7 @@ export default function ProjectDetails() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter leading-none mb-6">
                  {project.title}
               </h1>
-              <p className="text-xl text-zinc-500 font-medium tracking-tight max-w-2xl">{project.tagline}</p>
+              <p className="text-xl text-zinc-300 font-medium tracking-tight max-w-2xl">{project.tagline}</p>
             </div>
 
             <a 
@@ -109,11 +109,11 @@ export default function ProjectDetails() {
                    Redefining digital boundaries through precise engineering.
                 </p>
              </div>
-             <div className="md:w-2/3">
-                <p className="text-lg md:text-xl text-zinc-500 leading-relaxed font-body">
+              <div className="md:w-2/3">
+                <p className="text-lg md:text-xl text-zinc-300 leading-relaxed font-body">
                    {project.desc}
                 </p>
-             </div>
+              </div>
           </div>
 
           {/* Technology Detail */}
@@ -126,7 +126,7 @@ export default function ProjectDetails() {
              </div>
              <div className="md:w-2/3 flex flex-wrap gap-3">
                 {project.stack?.map((tech, idx) => (
-                  <div key={idx} className="px-6 py-4 bg-zinc-950 border border-white/5 text-zinc-400 font-bold uppercase text-[11px] tracking-widest">
+                  <div key={idx} className="px-6 py-4 bg-zinc-950 border border-white/5 text-zinc-200 font-bold uppercase text-[11px] tracking-widest">
                     {tech}
                   </div>
                 ))}
@@ -138,7 +138,7 @@ export default function ProjectDetails() {
         {/* Closing CTA */}
         <div className="detail-entrance mt-40 pt-20 border-t border-white/5 text-center">
             <p className="text-zinc-700 text-[10px] uppercase font-black tracking-[0.5em] mb-8">End of Transmission</p>
-            <button onClick={() => navigate("/projects")} className="text-white font-bold flex items-center gap-4 mx-auto hover:text-zinc-400 transition-colors">
+            <button onClick={() => navigate("/projects")} className="text-white font-bold flex items-center gap-4 mx-auto hover:text-zinc-200 transition-colors">
                 Explore More Works <ArrowRight size={20} />
             </button>
         </div>

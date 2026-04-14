@@ -24,12 +24,12 @@ export default function Footer() {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-16">
           <div className="footer-el flex flex-col gap-6">
-            <h2 className="text-3xl font-bold tracking-tighter text-white">Let's <span className="text-zinc-700 italic">collaborate.</span></h2>
+            <h2 className="text-3xl font-bold tracking-tighter text-white">Let's <span className="text-zinc-500 italic">collaborate.</span></h2>
             <a 
               href="https://www.instagram.com/joshtoyourears/" 
               target="_blank"
               rel="noreferrer"
-              className="text-xl md:text-2xl font-medium text-zinc-500 hover:text-white transition-colors border-b border-zinc-900 pb-2"
+              className="text-xl md:text-2xl font-medium text-zinc-300 hover:text-white transition-colors border-b border-zinc-900 pb-2"
             >
               @joshtoyourears
             </a>
@@ -46,7 +46,7 @@ export default function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noreferrer"
-                className="text-[10px] uppercase font-bold tracking-[0.3em] text-zinc-600 hover:text-white transition-colors interactive"
+                className="text-[10px] uppercase font-bold tracking-[0.3em] text-zinc-400 hover:text-white transition-colors interactive"
               >
                 {social.name}
               </a>
@@ -55,10 +55,10 @@ export default function Footer() {
         </div>
 
         <div className="footer-el mt-24 flex flex-col md:flex-row justify-between items-center gap-8 border-t border-white/5 pt-12">
-          <p className="text-[10px] text-zinc-800 uppercase font-black tracking-[0.5em]">
+          <p className="text-[10px] text-zinc-600 uppercase font-black tracking-[0.5em]">
             &copy; {date} Joshua Sofela
           </p>
-          <p className="text-[10px] text-zinc-800 uppercase font-black tracking-[0.5em]">
+          <p className="text-[10px] text-zinc-600 uppercase font-black tracking-[0.5em]">
             Black & White Series
           </p>
         </div>

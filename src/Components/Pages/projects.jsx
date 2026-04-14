@@ -43,14 +43,14 @@ export default function Projects() {
         
         {/* Editorial Header */}
         <div className="max-w-4xl mb-32">
-          <div className="header-reveal flex items-center gap-3 text-zinc-600 font-bold uppercase tracking-[0.4em] text-[10px] mb-8">
+          <div className="header-reveal flex items-center gap-3 text-zinc-400 font-bold uppercase tracking-[0.4em] text-[10px] mb-8">
             <Sparkles size={12} />
             <span>Project Index</span>
           </div>
           <h2 className="header-reveal text-huge mb-10 leading-[0.95]">
-            Digital <span className="text-zinc-800">Archive.</span>
+            Digital <span className="text-zinc-600">Archive.</span>
           </h2>
-          <p className="header-reveal font-body text-zinc-500 text-lg md:text-xl font-medium max-w-2xl leading-relaxed">
+          <p className="header-reveal font-body text-zinc-300 text-lg md:text-xl font-medium max-w-2xl leading-relaxed">
             Exploring the boundary between aesthetics and technology. 
             Each project is a unique exploration of user interaction and modern engineering.
           </p>
@@ -72,34 +72,34 @@ export default function Projects() {
               <div className="relative z-10 w-full flex flex-col md:flex-row md:items-end justify-between gap-12">
                 <div className="flex-1">
                   <div className="flex items-center gap-4 mb-6">
-                    <span className="text-zinc-700 font-mono text-[10px] uppercase tracking-[0.3em] font-black">
+                    <span className="text-zinc-500 font-mono text-[10px] uppercase tracking-[0.3em] font-black">
                       Index // {id < 9 ? `0${id + 1}` : id + 1}
                     </span>
-                    <div className="h-px w-10 bg-zinc-900"></div>
+                    <div className="h-px w-10 bg-zinc-700"></div>
                   </div>
                   
                   <h3 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-4">
                     {project.title}
                   </h3>
-                  <p className="text-zinc-600 font-body text-[11px] max-w-[450px] line-clamp-2 leading-relaxed italic">
+                  <p className="text-zinc-400 font-body text-[11px] max-w-[450px] line-clamp-2 leading-relaxed italic">
                     {project.desc}
                   </p>
                 </div>
 
                 <div className="flex flex-col md:items-end gap-8 h-full justify-between">
-                  <p className="text-zinc-600 font-body text-[10px] uppercase tracking-[0.2em] font-black max-w-[250px] md:text-right leading-relaxed mb-4 italic">
+                  <p className="text-zinc-400 font-body text-[10px] uppercase tracking-[0.2em] font-black max-w-[250px] md:text-right leading-relaxed mb-4 italic">
                     {project.tagline}
                   </p>
                   
                   <div className="flex items-center gap-6">
                     <div className="flex gap-2">
                        {project.stack?.slice(0, 2).map((s, i) => (
-                         <span key={i} className="text-[9px] text-zinc-800 uppercase font-black tracking-widest border border-zinc-900 px-3 py-1 rounded">
+                         <span key={i} className="text-[9px] text-zinc-600 uppercase font-black tracking-widest border border-zinc-700 px-3 py-1 rounded">
                            {s}
                          </span>
                        ))}
                     </div>
-                    <div className="w-14 h-14 rounded-full border border-white/5 flex items-center justify-center text-zinc-500">
+                    <div className="w-14 h-14 rounded-full border border-white/5 flex items-center justify-center text-zinc-300">
                       <ArrowRight size={20} />
                     </div>
                   </div>

@@ -38,10 +38,10 @@ export default function Hero() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="relative min-h-[75vh] flex items-center pt-24 pb-12 overflow-hidden bg-bg">
+    <section ref={containerRef} className="relative min-h-screen flex items-center pt-12 pb-12 overflow-hidden bg-bg">
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="hero-badge inline-flex items-center gap-2 px-4 py-1.5 bg-zinc-950 border border-white/5 text-zinc-400 text-[10px] uppercase font-bold tracking-[0.2em] mb-8 rounded-full">
+          <div className="hero-badge inline-flex items-center gap-2 px-4 py-1.5 bg-zinc-950 border border-white/5 text-zinc-200 text-[10px] uppercase font-bold tracking-[0.2em] mb-8 rounded-full">
             <Sparkles size={12} />
             <span>Available for new projects</span>
           </div>
@@ -49,11 +49,11 @@ export default function Hero() {
           <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tighter text-white">
             <span className="inline-block">Crafting Digital</span> <br className="hidden md:block"/>
             <span className="inline-block">Experiences </span>
-            <span className="inline-block text-zinc-600">With Precision</span>
+            <span className="inline-block text-zinc-400">With Precision</span>
           </h1>
           
-          <p className="hero-desc text-base sm:text-lg text-zinc-500 mb-10 max-w-xl mx-auto leading-relaxed font-medium">
-            Hi, I'm a Frontend Developer passionate about building intuitive, 
+          <p className="hero-desc text-base sm:text-lg text-zinc-300 mb-10 max-w-xl mx-auto leading-relaxed font-medium">
+            Hi, I'm a Software Developer passionate about building intuitive, 
             visually stunning, and high-performance user interfaces.
           </p>
           
@@ -78,7 +78,7 @@ export default function Hero() {
                   href={item.href} 
                   target="_blank" 
                   rel="noreferrer" 
-                  className="text-zinc-600 hover:text-white transition-colors p-2 interactive" 
+                  className="text-zinc-400 hover:text-white transition-colors p-2 interactive" 
                   aria-label={item.label}
                 >
                   {item.icon}

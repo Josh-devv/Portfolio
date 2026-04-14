@@ -6,10 +6,10 @@
 :root {
   --primary: #ffffff;
   --primary-rgb: 255, 255, 255;
-  --secondary: #e5e7eb;
-  --secondary-rgb: 229, 231, 235;
-  --accent: #a1a1aa;
-  --accent-rgb: 161, 161, 170;
+  --secondary: #f3f4f6;
+  --secondary-rgb: 243, 244, 246;
+  --accent: #d1d5db;
+  --accent-rgb: 209, 213, 219;
   --bg: #030303;
 }
 
@@ -33,7 +33,7 @@
 
 html, body {
   background-color: #030303;
-  color: #d1d5db;
+  color: #f3f4f6;
   font-family: 'Outfit', sans-serif;
   min-height: 100vh;
   margin: 0;

@@ -59,7 +59,7 @@ export default function Navbar() {
             J
           </div>
           <span className="text-xl font-bold tracking-tighter text-white">
-            Josh<span className="text-zinc-600">.</span>
+            Josh<span className="text-zinc-400">.</span>
           </span>
         </Link>
 
@@ -72,7 +72,7 @@ export default function Navbar() {
                 <Link
                   to={link.path}
                   className={`text-[10px] uppercase font-bold tracking-[0.3em] transition-all hover:text-white interactive ${
-                    isActive ? 'text-white underline underline-offset-8 decoration-2' : 'text-zinc-500'
+                    isActive ? 'text-white underline underline-offset-8 decoration-2' : 'text-zinc-300'
                   }`}
                 >
                   {link.name}
@@ -96,7 +96,7 @@ export default function Navbar() {
         <div className="fixed inset-0 bg-black z-[999] md:hidden flex flex-col pt-32 pb-16 px-8 sm:px-12 h-screen w-full overflow-y-auto">
           {/* Close Button Header */}
           <div className="absolute top-0 left-0 right-0 h-24 flex items-center justify-between px-6 border-b border-white/5 bg-black">
-             <span className="text-[10px] uppercase font-bold tracking-[0.5em] text-zinc-700">Navigation</span>
+             <span className="text-[10px] uppercase font-bold tracking-[0.5em] text-zinc-500">Navigation</span>
              <button 
                 className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center interactive" 
                 onClick={() => setIsNavOpen(false)}
@@ -113,10 +113,10 @@ export default function Navbar() {
                   to={link.path}
                   onClick={() => setIsNavOpen(false)}
                   className={`text-5xl font-black tracking-tighter transition-colors block ${
-                    location.pathname === link.path ? 'text-white' : 'text-zinc-500'
+                    location.pathname === link.path ? 'text-white' : 'text-zinc-300'
                   }`}
                 >
-                  {link.name}<span className="text-zinc-800">.</span>
+                  {link.name}<span className="text-zinc-600">.</span>
                 </Link>
               </li>
             ))}
@@ -124,13 +124,13 @@ export default function Navbar() {
 
           <div className="mt-auto flex flex-col gap-6 pt-12 border-t border-white/5">
              <div className="flex flex-col gap-2">
-                <p className="text-[10px] uppercase font-black tracking-[0.4em] text-zinc-800">Connection Points</p>
+                <p className="text-[10px] uppercase font-black tracking-[0.4em] text-zinc-600">Connection Points</p>
                 <div className="flex flex-wrap gap-8 mt-2">
-                   <a href="https://github.com/Josh-devv" target="_blank" rel="noreferrer" className="text-sm font-bold text-zinc-500 hover:text-white transition-colors">Github</a>
-                   <a href="https://www.instagram.com/joshtoyourears/" target="_blank" rel="noreferrer" className="text-sm font-bold text-zinc-500 hover:text-white transition-colors">Instagram</a>
+                   <a href="https://github.com/Josh-devv" target="_blank" rel="noreferrer" className="text-sm font-bold text-zinc-300 hover:text-white transition-colors">Github</a>
+                   <a href="https://www.instagram.com/joshtoyourears/" target="_blank" rel="noreferrer" className="text-sm font-bold text-zinc-300 hover:text-white transition-colors">Instagram</a>
                 </div>
              </div>
-             <p className="text-[9px] uppercase font-bold tracking-[0.2em] text-zinc-900">&copy; 2024 Joshua Sofela • Premium Archive</p>
+             <p className="text-[9px] uppercase font-bold tracking-[0.2em] text-zinc-700">&copy; 2024 Joshua Sofela • Premium Archive</p>
           </div>
         </div>
       )}
