@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import Hero from '../Structure/Hero';
+import ContactSection from '../Structure/ContactSection';
 import data from '../../data/list';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles } from 'lucide-react';
@@ -102,22 +103,7 @@ export default function Main() {
         </div>
       </section>
 
-      {/* Simplified CTA */}
-      <section className="bg-zinc-950 py-20 md:py-32 border-t border-white/5">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-large text-white mb-10 leading-none">
-            Ready for a <br /> <span className="text-zinc-800 italic">new mission?</span>
-          </h2>
-          <a 
-            href="https://www.instagram.com/joshtoyourears/" 
-            target="_blank"
-            rel="noreferrer"
-            className="inline-block px-10 md:px-12 py-4 md:py-5 bg-white text-black font-bold uppercase text-[10px] tracking-[0.4em] hover:bg-zinc-200 transition-all"
-          >
-            Start Project
-          </a>
-        </div>
-      </section>
+      <ContactSection />
     </div>
   );
 }

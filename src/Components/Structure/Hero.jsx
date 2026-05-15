@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Sparkles } from "lucide-react";
-import { FaGithub, FaTwitter, FaLinkedin, FaArrowRight, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaTwitter, FaLinkedin, FaArrowRight, FaEnvelope } from "react-icons/fa";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -68,10 +68,10 @@ export default function Hero() {
             
             <div className="flex items-center gap-6">
               {[
+                { icon: <FaEnvelope size={20} />, href: "mailto:sofelajoshua@gmail.com", label: "Email" },
                 { icon: <FaGithub size={20} />, href: "https://github.com/Josh-devv", label: "GitHub" },
                 { icon: <FaTwitter size={20} />, href: "https://x.com/sofelajoshua", label: "Twitter" },
-                { icon: <FaLinkedin size={20} />, href: "https://www.linkedin.com/in/joshua-sofela-8a062b22b/", label: "LinkedIn" },
-                { icon: <FaInstagram size={20} />, href: "https://www.instagram.com/joshtoyourears/", label: "Instagram" }
+                { icon: <FaLinkedin size={20} />, href: "https://www.linkedin.com/in/joshua-sofela-8a062b22b/", label: "LinkedIn" }
               ].map((item, idx) => (
                 <a 
                   key={idx} 

@@ -127,7 +127,7 @@ export default function Navbar() {
                 <p className="text-[10px] uppercase font-black tracking-[0.4em] text-zinc-600">Connection Points</p>
                 <div className="flex flex-wrap gap-8 mt-2">
                    <a href="https://github.com/Josh-devv" target="_blank" rel="noreferrer" className="text-sm font-bold text-zinc-300 hover:text-white transition-colors">Github</a>
-                   <a href="https://www.instagram.com/joshtoyourears/" target="_blank" rel="noreferrer" className="text-sm font-bold text-zinc-300 hover:text-white transition-colors">Instagram</a>
+                   <a href="mailto:sofelajoshua@gmail.com" target="_blank" rel="noreferrer" className="text-sm font-bold text-zinc-300 hover:text-white transition-colors">Email</a>
                 </div>
              </div>
              <p className="text-[9px] uppercase font-bold tracking-[0.2em] text-zinc-700">&copy; 2024 Joshua Sofela • Premium Archive</p>

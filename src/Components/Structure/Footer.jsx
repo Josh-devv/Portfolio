@@ -26,12 +26,12 @@ export default function Footer() {
           <div className="footer-el flex flex-col gap-6">
             <h2 className="text-3xl font-bold tracking-tighter text-white">Let's <span className="text-zinc-500 italic">collaborate.</span></h2>
             <a 
-              href="https://www.instagram.com/joshtoyourears/" 
+              href="mailto:sofelajoshua@gmail.com" 
               target="_blank"
               rel="noreferrer"
               className="text-xl md:text-2xl font-medium text-zinc-300 hover:text-white transition-colors border-b border-zinc-900 pb-2"
             >
-              @joshtoyourears
+              sofelajoshua@gmail.com
             </a>
           </div>
 

@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useEffect, useRef } from "react";
-import { Sparkles, ArrowDown, Code, Globe, Zap, Cpu } from "lucide-react";
+import { Sparkles, ArrowDown, Code, Globe, Zap, Cpu, Mail } from "lucide-react";
 import {
   FaGithub,
   FaTwitter,
@@ -171,7 +171,7 @@ export default function About() {
               {[
                 { name: "Twitter", href: "https://twitter.com/sofelajoshua", icon: <FaTwitter /> },
                 { name: "Github", href: "https://github.com/josh-devv", icon: <FaGithub /> },
-                { name: "Insta", href: "https://www.instagram.com/joshtoyourears/", icon: <Globe /> }
+                { name: "Email", href: "mailto:sofelajoshua@gmail.com", icon: <Mail /> }
               ].map((social, idx) => (
                 <a 
                   key={idx} 
