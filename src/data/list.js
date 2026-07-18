@@ -1,17 +1,63 @@
 
 import well from "../assets/well.jpg"
-
 import aur from "../assets/aur.jpg"
-
 import oyo from "../assets/oyo.jpg"
-
 import fit from "../assets/fit.jpg"
-
 import port from "../assets/port.png"
 import flix from "../assets/flix.png"
+import p413 from "../assets/p14.png"
+import lexissync from "../assets/sync.png"
+import c2squared from "../assets/c2.png"
+import stockwise from "../assets/stock.png"
+import velvetmeridian from "../assets/pill.png"
 
 
 const data = [
+      {
+      id: 6,
+      image: p413,
+      title: 'P413 Branding Agency',
+      tagline: 'Award-Winning Creative Studio — Est. 2018',
+      stack: ["Branding", "React", "Digital Ecosystems", "Creative Studio"],
+      link: "https://p-413.vercel.app/",
+      desc: 'An award-winning creative studio that partners with bold founders and teams to craft unforgettable digital ecosystems, viral content, and brands that move people. Bold typography, dark aesthetics, and high-impact storytelling define this identity.'
+    },
+    {
+      id: 7,
+      image: lexissync,
+      title: 'LEXIS_SYNC',
+      tagline: 'The Contract Workspace for Serious Teams.',
+      stack: ["SaaS", "React", "Contract Management", "Enterprise UI"],
+      link: "https://sync-org.vercel.app/",
+      desc: 'A clause-based contract management platform for enterprises that need structure, traceability, and control over every line they put their name to. Features real-time contract tracking, clause management, and team collaboration tools for legal professionals.'
+    },
+    {
+      id: 8,
+      image: c2squared,
+      title: 'C2 Squared Media',
+      tagline: 'Capturing Life\'s Moments & Sharing Your Stories.',
+      stack: ["Creative Agency", "React", "Media", "Storytelling"],
+      link: "https://www.c2squaredmedia.com/",
+      desc: 'A creative media agency specializing in cinematic storytelling and data-driven marketing strategies that transform a vision into an unstoppable brand presence. Features a bold founder-led identity, portfolio showcase, and service offerings.'
+    },
+    {
+      id: 9,
+      image: stockwise,
+      title: 'Stockwise',
+      tagline: 'Smart Inventory Management for Modern Businesses.',
+      stack: ["SaaS", "React", "Inventory", "Dashboard"],
+      link: "https://stock-smart.stocksmart.workers.dev/",
+      desc: 'A powerful inventory management platform that helps businesses track stock levels, record sales, and get real-time insights to keep operations running smoothly. Simple, powerful, and built for small teams who need confidence in their data.'
+    },
+    {
+      id: 10,
+      image: velvetmeridian,
+      title: 'Velvet Meridian',
+      tagline: 'Pillow Layers That Feel Composed, Not Crowded.',
+      stack: ["E-commerce", "React", "Luxury Textiles", "Shopify UI"],
+      link: "https://throw-pillow.vercel.app/",
+      desc: 'A curated textile e-commerce brand offering pre-styled pillow combinations and single statement covers — built so your sofa, bed, and reading nook settle into place without the styling marathon. Features natural fibers, feather & down blends, and easy 45-night returns.'
+    },
     {
       id: 0,
       image: well,
@@ -65,7 +111,8 @@ const data = [
       stack: ["React", "TMDB API", "Entertainment"],
       link: "http://movieapp-josh-devv.vercel.app",
       desc: 'Experience the ultimate cinematic journey with our cutting-edge movie web application. Dive into a world of endless entertainment, where you can discover and watch your favorite films effortlessly.'
-    }
+    },
+
   ];
 
   export default data
